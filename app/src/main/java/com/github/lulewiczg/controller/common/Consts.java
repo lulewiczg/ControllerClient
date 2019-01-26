@@ -8,7 +8,7 @@ public final class Consts {
     public static final String PORT = "prt";
     public static final String PASSWORD = "pwd";
 
-    public static final int TIMEOUT = 5000;
+    public static final int TIMEOUT = 10000;
 
     public static final String MOUSE_SPEED = "mouse.speed";
     public static final String MOUSE_FREQUENCY = "mouse.frequency";

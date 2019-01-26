@@ -60,14 +60,6 @@ public class Client implements Closeable {
         return instance;
     }
 
-    /**
-     * Destroys client.
-     */
-    public static void destroy() {
-        Helper.close(instance);
-        instance = new DisconnectedClient();
-    }
-
     protected Client() {
         //Do nothing
     }
@@ -75,10 +67,10 @@ public class Client implements Closeable {
     private Client(String address, int port) throws IOException {
         socket = new Socket();
         socket.setSoTimeout(Consts.TIMEOUT);
-        socket.connect(new InetSocketAddress(address, port));
+        socket.connect(new InetSocketAddress(address, port), 2000);
         out = new ObjectOutputStream(socket.getOutputStream());
         in = new ObjectInputStream(socket.getInputStream());
-        exec = Executors.newSingleThreadExecutor();
+        exec = Executors.newCachedThreadPool();
         awaitingActions = new AtomicInteger(0);
     }
 
@@ -147,7 +139,7 @@ public class Client implements Closeable {
      * @param activity activity
      * @param activity
      */
-    public void doActionFast(final Action action, Activity activity) {
+    public void doActionFast(final Action action, final Activity activity) {
         Thread t = new Thread() {
             @Override
             public void run() {
@@ -157,7 +149,7 @@ public class Client implements Closeable {
                     out.flush();
                 } catch (Exception e) {
                     e.printStackTrace();
-                    //Ignore
+                    Helper.close(Client.this);
                 } finally {
                     awaitingActions.decrementAndGet();
                 }
@@ -168,15 +160,16 @@ public class Client implements Closeable {
 
     /**
      * Closes connection.
-     *
-     * @throws IOException the IOException
      */
     @Override
-    public void close() throws IOException {
-        exec.shutdownNow();
-        in.close();
-        out.close();
-        socket.close();
+    public void close() {
+        if (exec != null) {
+            exec.shutdownNow();
+        }
+        Helper.close(in);
+        Helper.close(out);
+        Helper.close(socket);
+        instance = new DisconnectedClient();
     }
 
     public int getAwaitingActions() {
