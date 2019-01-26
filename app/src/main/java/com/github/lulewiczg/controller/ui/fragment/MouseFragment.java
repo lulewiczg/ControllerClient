@@ -3,7 +3,7 @@ package com.github.lulewiczg.controller.ui.fragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.view.VelocityTrackerCompat;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -21,9 +21,11 @@ import com.github.lulewiczg.controller.client.Client;
 import com.github.lulewiczg.controller.common.Consts;
 
 
+/**
+ * Allows to control mouse on server.
+ */
 public class MouseFragment extends ActionFragment implements View.OnTouchListener {
 
-    private static final double SCROLLBAR_POS = 0.95;
     private Button mouseButton1;
     private Button mouseButton2;
     private Button mouseButton3;
@@ -39,9 +41,11 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
     private int frequency;
     private boolean autoFrequency;
 
+    /**
+     * Loads required preferences
+     */
     private void loadPreferences() {
-        SharedPreferences settings;
-        settings = PreferenceManager.getDefaultSharedPreferences(this.getContext());
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this.getContext());
         speed = Integer.valueOf(settings.getString(Consts.MOUSE_SPEED, "50"));
         scrollSpeed = Integer.valueOf(settings.getString(Consts.MOUSE_SCROLL_SPEED, "20"));
         frequency = Integer.valueOf(settings.getString(Consts.MOUSE_FREQUENCY, "200"));
@@ -61,7 +65,7 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mouse, container, false);
         mouseButton1 = view.findViewById(R.id.mouse_button1);
@@ -80,39 +84,49 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        int key = 0;
+        v.performClick();
         if (v.equals(mouseButton1)) {
-            key = MouseButtonAction.LMB;
-            mouseButton(key, event);
+            processButtonClick(MouseButtonAction.LMB, event);
         } else if (v.equals(mouseButton2)) {
-            key = MouseButtonAction.RMB;
-            mouseButton(key, event);
+            processButtonClick(MouseButtonAction.RMB, event);
         } else if (v.equals(mouseButton3)) {
-            key = MouseButtonAction.MMB;
-            mouseButton(key, event);
+            processButtonClick(MouseButtonAction.MMB, event);
         } else if (v.equals(touchpad)) {
-            touchpad(event);
+            processTouchpad(event);
         } else if (v.equals(scroll)) {
-            scroll(event);
+            processScroll(event);
         }
 
         return false;
     }
 
-    private void scroll(MotionEvent event) {
+    /**
+     * Handles scroll event.
+     *
+     * @param event event
+     */
+    private void processScroll(MotionEvent event) {
         if (checkIfDo()) {
             int index = event.getActionIndex();
             int pointerId = event.getPointerId(index);
             vt.addMovement(event);
             vt.computeCurrentVelocity(scrollSpeed);
-            double y = VelocityTrackerCompat.getYVelocity(vt, pointerId);
-            MouseScrollAction action = new MouseScrollAction((int) y / 2);
-            Client.get().doActionFast(action, getActivity());
+            double y = vt.getYVelocity(pointerId);
+            if (y != 0) {
+                MouseScrollAction action = new MouseScrollAction((int) y);
+                Client.get().doActionFast(action, getActivity());
+            }
         }
     }
 
-    private void mouseButton(int key, MotionEvent event) {
-        MouseButtonAction action = null;
+    /**
+     * Handles mouse button click.
+     *
+     * @param key   key
+     * @param event event
+     */
+    private void processButtonClick(int key, MotionEvent event) {
+        MouseButtonAction action;
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             action = new MouseButtonPressAction(key);
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -123,24 +137,34 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
         Client.get().doAction(action, getActivity());
     }
 
+    /**
+     * Checks if mouse move action can be sent.
+     *
+     * @return true if can
+     */
     private boolean checkIfDo() {
         if (autoFrequency) {
-            return Client.get().getAwaitingActions() <= 1;
+            return Client.get().getAwaitingActions() <= 3;
         } else {
             time = System.currentTimeMillis();
             return time - prevTime > frequency;
         }
     }
 
-    private void touchpad(MotionEvent event) {
+    /**
+     * Handles mouse move action
+     *
+     * @param event event
+     */
+    private void processTouchpad(MotionEvent event) {
         int index = event.getActionIndex();
         int pointerId = event.getPointerId(index);
         vt.clear();
         vt.addMovement(event);
         vt.computeCurrentVelocity(speed);
-        dx += VelocityTrackerCompat.getXVelocity(vt, pointerId);
-        dy += VelocityTrackerCompat.getYVelocity(vt, pointerId);
-        if (checkIfDo()) {
+        dx += vt.getXVelocity(pointerId);
+        dy += vt.getYVelocity(pointerId);
+        if (dx != 0 && dy != 0 && checkIfDo()) {
             MouseMoveAction action = new MouseMoveAction(dx, dy);
             Client.get().doActionFast(action, getActivity());
             prevTime = time;
