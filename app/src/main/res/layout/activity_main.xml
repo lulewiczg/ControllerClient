@@ -18,9 +18,10 @@
             android:background="?attr/colorPrimary" />
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
+    <com.github.lulewiczg.controller.components.NonSwipeableViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/appbar_padding_top"/>
 
 </android.support.design.widget.CoordinatorLayout>

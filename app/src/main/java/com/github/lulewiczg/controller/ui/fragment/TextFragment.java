@@ -18,7 +18,7 @@ public class TextFragment extends ActionFragment {
     public void sendText() {
         String string = textInput.getText().toString();
         TextAction textAction = new TextAction(string);
-        Client.get().doActionFast(textAction);
+        Client.get().doActionFast(textAction, getActivity());
         textInput.setText("");
     }
 

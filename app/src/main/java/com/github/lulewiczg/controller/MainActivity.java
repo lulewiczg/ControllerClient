@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         Helper.displayAlert(this, R.string.alert_exit_title, R.string.alert_exit_message, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                client.logout();
+                client.logout(MainActivity.this);
                 Client.destroy();
                 MainActivity.super.onBackPressed();
             }

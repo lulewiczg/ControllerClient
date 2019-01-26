@@ -83,7 +83,7 @@ public class HomeActivity extends AppCompatActivity {
                     runOnUiThread(Helper.closeProgress(progress));
                 }
                 Response response;
-                response = client.login(password, Build.MANUFACTURER + ", " + Build.MODEL, getIP());
+                response = client.login(password, Build.MANUFACTURER + ", " + Build.MODEL, getIP(), HomeActivity.this);
                 if (response.getStatus() != Status.OK) {
                     runOnUiThread(Helper.displayToast(getBaseContext(), R.string.connect_invalid_password));
                 } else {

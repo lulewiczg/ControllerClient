@@ -1,5 +1,6 @@
 package com.github.lulewiczg.controller.client;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 
 import com.github.lulewiczg.controller.actions.Action;
@@ -8,6 +9,7 @@ import com.github.lulewiczg.controller.actions.impl.LoginAction;
 import com.github.lulewiczg.controller.common.Consts;
 import com.github.lulewiczg.controller.common.Helper;
 import com.github.lulewiczg.controller.common.Response;
+import com.github.lulewiczg.controller.common.Status;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -55,9 +57,6 @@ public class Client implements Closeable {
      * @return client
      */
     public static Client get() {
-        if (instance == null) {
-            throw new RuntimeException("Not connected");
-        }
         return instance;
     }
 
@@ -66,17 +65,21 @@ public class Client implements Closeable {
      */
     public static void destroy() {
         Helper.close(instance);
-        instance = null;
+        instance = new DisconnectedClient();
     }
 
-    private Client(String address, int port) throws IOException, InterruptedException {
+    protected Client() {
+        //Do nothing
+    }
+
+    private Client(String address, int port) throws IOException {
         socket = new Socket();
         socket.setSoTimeout(Consts.TIMEOUT);
         socket.connect(new InetSocketAddress(address, port));
         out = new ObjectOutputStream(socket.getOutputStream());
         in = new ObjectInputStream(socket.getInputStream());
         exec = Executors.newSingleThreadExecutor();
-        awaitingActions=new AtomicInteger(0);
+        awaitingActions = new AtomicInteger(0);
     }
 
     /**
@@ -85,28 +88,31 @@ public class Client implements Closeable {
      * @param password password
      * @param client   client info
      * @param address  local address
+     * @param activity activity
      * @return server response
      */
-    public Response login(String password, String client, String address) {
-        return doAction(new LoginAction(password, client, address));
+    public Response login(String password, String client, String address, Activity activity) {
+        return doAction(new LoginAction(password, client, address), activity);
     }
 
     /**
      * Disconnects from server.
      *
+     * @param activity activity
      * @return server response
      */
-    public Response logout() {
-        return doAction(new DisconnectAction());
+    public Response logout(Activity activity) {
+        return doAction(new DisconnectAction(), activity);
     }
 
     /**
      * Executes server action.
      *
-     * @param action action
+     * @param action   action
+     * @param activity activity
      * @return server response
      */
-    public Response doAction(Action action) {
+    public Response doAction(Action action, Activity activity) {
         AsyncTask<Action, Integer, Response> sendTask = new AsyncTask<Action, Integer, Response>() {
             @Override
             protected Response doInBackground(Action... params) {
@@ -128,7 +134,7 @@ public class Client implements Closeable {
         try {
             response = sendTask.get(5, TimeUnit.SECONDS);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return new Response(Status.NOT_OK);
         }
         sendTask.cancel(true);
         return response;
@@ -137,9 +143,11 @@ public class Client implements Closeable {
     /**
      * Executes server and does not wait for response.
      *
-     * @param action action
+     * @param action   action
+     * @param activity activity
+     * @param activity
      */
-    public void doActionFast(final Action action) {
+    public void doActionFast(final Action action, Activity activity) {
         Thread t = new Thread() {
             @Override
             public void run() {
