@@ -18,6 +18,7 @@ import com.github.lulewiczg.controller.actions.impl.MouseButtonPressAction;
 import com.github.lulewiczg.controller.actions.impl.MouseButtonReleaseAction;
 import com.github.lulewiczg.controller.actions.impl.MouseMoveAction;
 import com.github.lulewiczg.controller.actions.impl.MouseScrollAction;
+import com.github.lulewiczg.controller.client.Client;
 import com.github.lulewiczg.controller.common.CommunicationHelper;
 import com.github.lulewiczg.controller.common.Consts;
 
@@ -39,7 +40,7 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
     private int scrollSpeed;
     private int frequency;
     private boolean autoFrequency;
-    private CommunicationHelper helper;
+    private Client client;
 
     public MouseFragment() {
         // Required empty public constructor
@@ -57,7 +58,7 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        helper = CommunicationHelper.getInstance();
+        client = Client.get();
         loadPreferences();
     }
 
@@ -148,9 +149,9 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
         CommunicationHelper.sendAction(action, getActivity());
     }
 
-    boolean checkIfDo() {
+    private boolean checkIfDo() {
         if (autoFrequency) {
-            return helper.getAwaitingActions() <= 1;
+            return client.getAwaitingActions() <= 1;
         } else {
             time = System.currentTimeMillis();
             return time - prevTime > frequency;

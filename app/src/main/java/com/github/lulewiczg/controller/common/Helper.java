@@ -8,14 +8,41 @@ import android.widget.Toast;
 
 import com.github.lulewiczg.controller.R;
 
+import java.io.Closeable;
+import java.io.IOException;
+
 /**
- * Created by Grzegurz on 2016-03-05.
+ * Helper class for common methods.
  */
 public final class Helper {
 
     private Helper() {
     }
 
+    /**
+     * Closes given closeable.
+     *
+     * @param c closeable
+     */
+    public static void close(Closeable c) {
+        if (c == null) {
+            return;
+        }
+        try {
+            c.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Displays toast
+     *
+     * @param c     context
+     * @param title message title
+     * @return thread
+     */
     public static Thread displayToast(final Context c, final int title) {
         Thread t = new Thread() {
             @Override
@@ -26,6 +53,15 @@ public final class Helper {
         return t;
     }
 
+    /**
+     * Displays alert message.
+     *
+     * @param c       context
+     * @param title   alert title
+     * @param msg     alert message
+     * @param onTrue  accept listener
+     * @param onFalse deny listener
+     */
     public static void displayAlert(Context c, int title, int msg, DialogInterface.OnClickListener onTrue,
                                     DialogInterface.OnClickListener onFalse) {
         AlertDialog.Builder builder = new AlertDialog.Builder(c);
@@ -34,14 +70,19 @@ public final class Helper {
         builder.setMessage(msg);
         if (onFalse == null) {
             builder.setPositiveButton(R.string.ok, onTrue);
-        }
-        else{
+        } else {
             builder.setPositiveButton(R.string.yes, onTrue);
             builder.setNegativeButton(R.string.no, onFalse);
         }
         builder.create().show();
     }
 
+    /**
+     * Closes progress dialog.
+     *
+     * @param dialog dialog
+     * @return thread
+     */
     public static Thread closeProgress(final ProgressDialog dialog) {
         Thread t = new Thread() {
             @Override
