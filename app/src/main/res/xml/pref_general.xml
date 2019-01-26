@@ -1,0 +1,37 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue="50"
+        android:inputType="number"
+        android:key="mouse.speed"
+        android:summary="@string/setting.mouse.speed.description"
+        android:title="@string/setting.mouse.speed" />
+
+
+    <EditTextPreference
+        android:defaultValue="20"
+        android:inputType="number"
+        android:key="mouse.scroll.speed"
+        android:summary="@string/setting.mouse.scroll.description"
+        android:title="@string/setting.mouse.scroll" />
+
+    <PreferenceCategory android:title="@string/setting.mouse.group">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:disableDependentsState="true"
+            android:key="mouse.frequency.auto"
+            android:summaryOff="@string/setting.mouse.frequency.type.description.off"
+            android:summaryOn="@string/setting.mouse.frequency.type.description.on"
+            android:title="@string/setting.mouse.frequency.type" />
+
+        <EditTextPreference
+            android:defaultValue="200"
+            android:dependency="mouse.frequency.auto"
+            android:inputType="number"
+            android:key="mouse.frequency"
+            android:summary="@string/setting.mouse.frequency.description"
+            android:title="@string/setting.mouse.frequency" />
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

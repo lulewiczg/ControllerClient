@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.github.lulewiczg.controller.R;
 import com.github.lulewiczg.controller.ui.fragment.MouseFragment;
+import com.github.lulewiczg.controller.ui.fragment.SettingsFragment;
 import com.github.lulewiczg.controller.ui.fragment.TextFragment;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         fragments.add(new MouseFragment());
         fragments.add(new TextFragment());
-        fragments.add(new TextFragment());
+        fragments.add(new SettingsFragment());
         mContext = context;
     }
 
