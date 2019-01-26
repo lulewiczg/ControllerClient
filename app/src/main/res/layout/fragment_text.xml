@@ -1,0 +1,62 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="com.github.lulewiczg.controller.TextFragment">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_weight="2">
+
+            <TextView
+                android:id="@+id/text.label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text.send.label"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="10">
+
+            <EditText
+                android:id="@+id/text.send.input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/text.send.label"
+                android:inputType="textMultiLine"
+                android:gravity="top|left" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text.send.button"
+            android:layout_weight="2" />
+
+    </LinearLayout>
+
+
+</FrameLayout>
