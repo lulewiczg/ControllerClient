@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.Formatter;
 import android.view.View;
@@ -30,6 +31,8 @@ import java.io.IOException;
 public class HomeActivity extends AppCompatActivity {
 
     private WifiManager wm;
+    private int timeout;
+    private int serverTimeout;
 
     /**
      * Returns phone address, no other method available for IPv4 formatting.
@@ -48,7 +51,6 @@ public class HomeActivity extends AppCompatActivity {
      */
     public void click(View v) {
         final Intent intent = new Intent(getBaseContext(), MainActivity.class);
-
         EditText addressInput = findViewById(R.id.address_input_address);
         final String address = addressInput.getText().toString();
         if (address.equals("")) {
@@ -74,8 +76,8 @@ public class HomeActivity extends AppCompatActivity {
             public void run() {
                 Client client;
                 try {
-                    client = Client.create(address, port);
-                } catch (IOException | InterruptedException e) {
+                    client = Client.create(address, port, timeout, serverTimeout);
+                } catch (IOException e) {
                     e.printStackTrace();
                     runOnUiThread(Helper.displayToast(getBaseContext(), R.string.connect_error));
                     return;
@@ -94,6 +96,12 @@ public class HomeActivity extends AppCompatActivity {
         t.start();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadPrefs();
+    }
+
     /**
      * Sets up input fields on start.
      *
@@ -104,7 +112,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         wm = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
         setContentView(R.layout.activity_home);
-
+        loadPrefs();
         SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = prefs.edit();
 
@@ -119,5 +127,14 @@ public class HomeActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.password_input);
         password.setText(prefs.getString(Consts.PASSWORD, "0"));
         password.addTextChangedListener(new ValueChangeListener(Consts.PASSWORD, edit));
+    }
+
+    /**
+     * Loads connection settings.
+     */
+    private void loadPrefs() {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        timeout = Integer.parseInt(settings.getString(Consts.CONNECT_TIMEOUT, "2000"));
+        serverTimeout = Integer.parseInt(settings.getString(Consts.SERVER_TIMEOUT, "10000"));
     }
 }

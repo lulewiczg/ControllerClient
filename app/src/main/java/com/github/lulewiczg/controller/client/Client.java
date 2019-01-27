@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import com.github.lulewiczg.controller.actions.Action;
 import com.github.lulewiczg.controller.actions.impl.DisconnectAction;
 import com.github.lulewiczg.controller.actions.impl.LoginAction;
-import com.github.lulewiczg.controller.common.Consts;
 import com.github.lulewiczg.controller.common.Helper;
 import com.github.lulewiczg.controller.common.Response;
 import com.github.lulewiczg.controller.common.Status;
@@ -39,15 +38,18 @@ public class Client implements Closeable {
     /**
      * Creates new client.
      *
-     * @param address address
-     * @param port    port
+     * @param address       address
+     * @param port          port
+     * @param timeout       timeout
+     * @param serverTimeout server timeout
      * @return client
+     * @throws IOException the IOException
      */
-    public static Client create(String address, int port) throws IOException, InterruptedException {
+    public static Client create(String address, int port, int timeout, int serverTimeout) throws IOException {
         if (instance != null) {
             Helper.close(instance);
         }
-        instance = new Client(address, port);
+        instance = new Client(address, port, timeout, serverTimeout);
         return instance;
     }
 
@@ -61,13 +63,13 @@ public class Client implements Closeable {
     }
 
     protected Client() {
-        //Do nothing
+        awaitingActions = new AtomicInteger(0);
     }
 
-    private Client(String address, int port) throws IOException {
+    private Client(String address, int port, int timeout, int serverTimeout) throws IOException {
         socket = new Socket();
-        socket.setSoTimeout(Consts.TIMEOUT);
-        socket.connect(new InetSocketAddress(address, port), 2000);
+        socket.setSoTimeout(serverTimeout);
+        socket.connect(new InetSocketAddress(address, port), timeout);
         out = new ObjectOutputStream(socket.getOutputStream());
         in = new ObjectInputStream(socket.getInputStream());
         exec = Executors.newCachedThreadPool();

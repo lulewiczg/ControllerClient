@@ -38,8 +38,9 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
     private long time;
     private int speed;
     private int scrollSpeed;
-    private int frequency;
-    private boolean autoFrequency;
+    private int interval;
+    private int maxQueue;
+    private boolean queueLimiter;
 
     /**
      * Loads required preferences
@@ -48,8 +49,9 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this.getContext());
         speed = Integer.valueOf(settings.getString(Consts.MOUSE_SPEED, "50"));
         scrollSpeed = Integer.valueOf(settings.getString(Consts.MOUSE_SCROLL_SPEED, "20"));
-        frequency = Integer.valueOf(settings.getString(Consts.MOUSE_FREQUENCY, "200"));
-        autoFrequency = settings.getBoolean(Consts.MOUSE_AUTO_FREQUENCY, true);
+        interval = Integer.valueOf(settings.getString(Consts.MOUSE_INTERVAL, "50"));
+        maxQueue = Integer.valueOf(settings.getString(Consts.MOUSE_QUEUE, "3"));
+        queueLimiter = settings.getBoolean(Consts.MOUSE_LIMITER_TYPE, true);
     }
 
     @Override
@@ -143,11 +145,11 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
      * @return true if can
      */
     private boolean checkIfDo() {
-        if (autoFrequency) {
-            return Client.get().getAwaitingActions() <= 3;
+        if (queueLimiter) {
+            return Client.get().getAwaitingActions() <= maxQueue;
         } else {
             time = System.currentTimeMillis();
-            return time - prevTime > frequency;
+            return time - prevTime > interval;
         }
     }
 

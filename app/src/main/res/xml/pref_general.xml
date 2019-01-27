@@ -1,37 +1,60 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <EditTextPreference
-        android:defaultValue="50"
-        android:inputType="number"
-        android:key="mouse.speed"
-        android:summary="@string/setting.mouse.speed.description"
-        android:title="@string/setting.mouse.speed" />
-
-
-    <EditTextPreference
-        android:defaultValue="20"
-        android:inputType="number"
-        android:key="mouse.scroll.speed"
-        android:summary="@string/setting.mouse.scroll.description"
-        android:title="@string/setting.mouse.scroll" />
-
-    <PreferenceCategory android:title="@string/setting.mouse.group">
-        <SwitchPreference
-            android:defaultValue="true"
-            android:disableDependentsState="true"
-            android:key="mouse.frequency.auto"
-            android:summaryOff="@string/setting.mouse.frequency.type.description.off"
-            android:summaryOn="@string/setting.mouse.frequency.type.description.on"
-            android:title="@string/setting.mouse.frequency.type" />
+    <PreferenceCategory android:title="@string/setting.connection.group">
 
         <EditTextPreference
-            android:defaultValue="200"
-            android:dependency="mouse.frequency.auto"
+            android:defaultValue="10000"
             android:inputType="number"
-            android:key="mouse.frequency"
-            android:summary="@string/setting.mouse.frequency.description"
-            android:title="@string/setting.mouse.frequency" />
+            android:key="connect.timeout"
+            android:summary="@string/setting.connect.timeout.description"
+            android:title="@string/setting.connect.timeout" />
+
+        <EditTextPreference
+            android:defaultValue="2000"
+            android:inputType="number"
+            android:key="server.timeout"
+            android:summary="@string/setting.server.timeout.description"
+            android:title="@string/setting.server.timeout" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/setting.mouse.group">
+        <EditTextPreference
+            android:defaultValue="50"
+            android:inputType="number"
+            android:key="mouse.speed"
+            android:summary="@string/setting.mouse.speed.description"
+            android:title="@string/setting.mouse.speed" />
+
+        <EditTextPreference
+            android:defaultValue="20"
+            android:inputType="number"
+            android:key="mouse.scroll.speed"
+            android:summary="@string/setting.mouse.scroll.description"
+            android:title="@string/setting.mouse.scroll" />
+
+        <PreferenceCategory android:title="@string/setting.mouse.impl.group">
+            <SwitchPreference
+                android:defaultValue="true"
+                android:disableDependentsState="true"
+                android:key="mouse.limiter.type"
+                android:summaryOff="@string/setting.mouse.interval.type.description.off"
+                android:summaryOn="@string/setting.mouse.interval.type.description.on"
+                android:title="@string/setting.mouse.limiter.type" />
+
+            <EditTextPreference
+                android:defaultValue="50"
+                android:inputType="number"
+                android:key="mouse.interval"
+                android:summary="@string/setting.mouse.interval.description"
+                android:title="@string/setting.mouse.frequency" />
+
+            <EditTextPreference
+                android:defaultValue="3"
+                android:inputType="number"
+                android:key="mouse.queue"
+                android:summary="@string/setting.mouse.queue.description"
+                android:title="@string/setting.mouse.queue" />
+        </PreferenceCategory>
+    </PreferenceCategory>
 
 </PreferenceScreen>
