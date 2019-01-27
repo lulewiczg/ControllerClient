@@ -1,4 +1,4 @@
-package com.github.lulewiczg.controller.ui.main;
+package com.github.lulewiczg.controller.ui.component;
 
 import android.arch.core.util.Function;
 import android.arch.lifecycle.LiveData;

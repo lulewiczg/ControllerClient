@@ -1,4 +1,4 @@
-package com.github.lulewiczg.controller;
+package com.github.lulewiczg.controller.ui.activity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -7,9 +7,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
+import com.github.lulewiczg.controller.R;
 import com.github.lulewiczg.controller.client.Client;
 import com.github.lulewiczg.controller.common.Helper;
-import com.github.lulewiczg.controller.ui.main.SectionsPagerAdapter;
+import com.github.lulewiczg.controller.ui.component.SectionsPagerAdapter;
 
 /**
  * Main activity for app.

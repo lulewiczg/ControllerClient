@@ -1,4 +1,4 @@
-package com.github.lulewiczg.controller.components;
+package com.github.lulewiczg.controller.ui.component;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

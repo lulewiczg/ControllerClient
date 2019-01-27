@@ -1,4 +1,4 @@
-package com.github.lulewiczg.controller.ui;
+package com.github.lulewiczg.controller.ui.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.github.lulewiczg.controller.MainActivity;
 import com.github.lulewiczg.controller.R;
 import com.github.lulewiczg.controller.client.Client;
 import com.github.lulewiczg.controller.common.Consts;

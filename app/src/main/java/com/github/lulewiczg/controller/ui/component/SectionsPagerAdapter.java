@@ -1,4 +1,4 @@
-package com.github.lulewiczg.controller.ui.main;
+package com.github.lulewiczg.controller.ui.component;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

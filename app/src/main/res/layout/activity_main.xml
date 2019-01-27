@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:background="?attr/colorPrimary" />
     </android.support.design.widget.AppBarLayout>
 
-    <com.github.lulewiczg.controller.components.NonSwipeableViewPager
+    <com.github.lulewiczg.controller.ui.component.NonSwipeableViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
