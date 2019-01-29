@@ -1,0 +1,1103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.KeyboardFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x1B"
+                android:text="Esc"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x70"
+                android:text="F1"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x71"
+                android:text="F2"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x72"
+                android:text="F3"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x73"
+                android:text="F4"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x74"
+                android:text="F5"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x75"
+                android:text="F6"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x76"
+                android:text="F7"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x77"
+                android:text="F8"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x78"
+                android:text="F9"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x79"
+                android:text="F10"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x7A"
+                android:text="F11"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x7B"
+                android:text="F12"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x9A"
+                android:text="PrntSc"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x91"
+                android:text="ScrlLck"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:tag="0x13"
+                android:text="Pause"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/button17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x83"
+                android:text="~"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x31"
+                android:text="1"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x32"
+                android:text="2"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x33"
+                android:text="4"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x34"
+                android:text="4"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x35"
+                android:text="5"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x36"
+                android:text="6"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x37"
+                android:text="7"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x38"
+                android:text="8"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x39"
+                android:text="9"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x30"
+                android:text="0"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x3B"
+                android:text="-"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x3D"
+                android:text="+"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x08"
+                android:text="Bckpsc"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x9B"
+                android:text="Ins"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x24"
+                android:text="Home"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x21"
+                android:text="PgUp"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x90"
+                android:text="NumLck"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x2F"
+                android:text="/"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x6A"
+                android:text="*"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x2D"
+                android:text="-"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button38"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x09"
+                android:text="Tab"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x51"
+                android:text="Q"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x57"
+                android:text="W"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x45"
+                android:text="E"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x52"
+                android:text="R"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x54"
+                android:text="T"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x59"
+                android:text="Y"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x55"
+                android:text="U"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button46"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x49"
+                android:text="I"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x55"
+                android:text="U"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button48"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x4F"
+                android:text="O"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x50"
+                android:text="P"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x5B"
+                android:text="{"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x5D"
+                android:text="}"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x5C"
+                android:text="\"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button53"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="0x7F"
+                android:text="Del"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="0x23"
+                android:text="End"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button55"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="0x22"
+                android:text="PgDwn"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button56"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x67"
+                android:text="7"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button57"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x68"
+                android:text="8"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button59"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x69"
+                android:text="9"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x6B"
+                android:text="+"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button62"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x14"
+                android:text="Caps"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button63"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x41"
+                android:text="A"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button64"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x53"
+                android:text="S"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button65"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x44"
+                android:text="D"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button66"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x46"
+                android:text="F"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button67"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x47"
+                android:text="G"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button68"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x48"
+                android:text="H"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button69"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x4A"
+                android:text="J"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button70"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x4B"
+                android:text="K"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button71"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x4C"
+                android:text="L"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button72"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x3B"
+                android:text=";"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button73"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0xDE"
+                android:text='"'
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button74"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x0A"
+                android:text="Entr"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button75"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x64"
+                android:text="4"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button76"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x65"
+                android:text="5"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button77"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x66"
+                android:text="6"
+                android:textSize="8sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button108"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x10"
+                android:text="Shft"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button109"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x5A"
+                android:text="Z"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button98"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x58"
+                android:text="X"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button99"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x43"
+                android:text="C"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x56"
+                android:text="V"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button101"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x42"
+                android:text="B"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button102"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x4E"
+                android:text="N"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button103"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x4D"
+                android:text="M"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button104"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x2C"
+                android:text=","
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button105"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x2E"
+                android:text="."
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button106"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x2F"
+                android:text="/"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button107"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x10"
+                android:text="Shft"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button113"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x26"
+                android:text="↑"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button114"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x61"
+                android:text="1"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button110"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x62"
+                android:text="2"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button112"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x63"
+                android:text="3"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x0A"
+                android:text="Entr"
+                android:textSize="8sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button115"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x11"
+                android:text="Ctrl"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button116"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x020C"
+                android:text="Win"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button117"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x12"
+                android:text="Alt"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button118"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="-2"
+                android:singleLine="true"
+                android:tag="0x20"
+                android:text="Space"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button119"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x12"
+                android:text="Alt"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button120"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x020C"
+                android:text="Win"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button121"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x020D"
+                android:text="Opt"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button122"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x11"
+                android:text="Ctrl"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button123"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x25"
+                android:text="←"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button124"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x28"
+                android:text="↓"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button125"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x27"
+                android:text="→"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button126"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x60"
+                android:text="0"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/button127"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:tag="0x6E"
+                android:text="Del"
+                android:textSize="8sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -12,8 +12,8 @@ public class KeyReleaseAction extends KeyAction {
 
     private static final long serialVersionUID = 1L;
 
-    public KeyReleaseAction(char c) {
-        super(c);
+    public KeyReleaseAction(int key) {
+        super(key);
     }
 
 }

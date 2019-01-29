@@ -11,8 +11,8 @@ public class KeyPressAction extends KeyAction {
 
     private static final long serialVersionUID = 1L;
 
-    public KeyPressAction(char c) {
-        super(c);
+    public KeyPressAction(int key) {
+        super(key);
     }
 
 }
