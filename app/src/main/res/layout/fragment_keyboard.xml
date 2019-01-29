@@ -26,12 +26,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x1B"
                 android:text="Esc"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -44,12 +45,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x70"
                 android:text="F1"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -62,12 +64,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x71"
                 android:text="F2"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -80,12 +83,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x72"
                 android:text="F3"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -98,12 +102,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x73"
                 android:text="F4"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -116,12 +121,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x74"
                 android:text="F5"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -134,12 +140,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x75"
                 android:text="F6"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -152,12 +159,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x76"
                 android:text="F7"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -170,12 +178,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x77"
                 android:text="F8"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -188,12 +197,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x78"
                 android:text="F9"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -206,12 +216,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x79"
                 android:text="F10"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -224,12 +235,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x7A"
                 android:text="F11"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -242,12 +254,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x7B"
                 android:text="F12"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -260,12 +273,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x9A"
                 android:text="PrntSc"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -278,12 +292,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="true"
                 android:tag="0x9B"
                 android:text="Insert"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -296,11 +311,12 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:tag="0x7F"
                 android:text="Delete"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -313,12 +329,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="true"
                 android:tag="0x24"
                 android:text="Home"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -331,11 +348,12 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:tag="0x23"
                 android:text="End"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -348,12 +366,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="true"
                 android:tag="0x21"
                 android:text="PgUp"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -366,11 +385,12 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:tag="0x22"
                 android:text="PgDwn"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -383,12 +403,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x13"
                 android:text="Pause"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -401,12 +422,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="6dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x91"
                 android:text="ScrlLck"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
         </LinearLayout>
@@ -426,12 +448,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x83"
                 android:text="~\n`"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -444,12 +467,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x31"
                 android:text="!\n1"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -462,12 +486,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x32"
                 android:text="\@\n2"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -480,11 +505,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
+                android:singleLine="false"
                 android:tag="0x33"
                 android:text="#\n3"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -497,11 +524,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
+                android:singleLine="false"
                 android:tag="0x34"
                 android:text="$\n4"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -514,12 +543,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x35"
                 android:text="%\n5"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -532,12 +562,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x36"
                 android:text="^\n6"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -550,12 +581,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x37"
                 android:text="&amp;\n7"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -568,12 +600,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x38"
                 android:text="*\n8"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -586,12 +619,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x39"
                 android:text="(\n9"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -604,12 +638,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x30"
                 android:text=")\n0"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -622,12 +657,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x3B"
                 android:text="_\n-"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -640,12 +676,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x3D"
                 android:text="+\n="
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -658,12 +695,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="20"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x08"
                 android:text="Backspace"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -676,12 +714,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x90"
                 android:text="NumLck"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -694,12 +733,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x2F"
                 android:text="/"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -712,12 +752,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x6A"
                 android:text="*"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -730,12 +771,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x2D"
                 android:text="-"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
         </LinearLayout>
@@ -755,12 +797,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="12"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x09"
                 android:text="Tab"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -773,12 +816,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x51"
                 android:text="Q"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -791,12 +835,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x57"
                 android:text="W"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -809,12 +854,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x45"
                 android:text="E"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -827,12 +873,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x52"
                 android:text="R"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -845,12 +892,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x54"
                 android:text="T"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -863,12 +911,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x59"
                 android:text="Y"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -881,12 +930,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x55"
                 android:text="U"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -899,12 +949,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x49"
                 android:text="I"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -917,12 +968,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x55"
                 android:text="U"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -935,12 +987,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x4F"
                 android:text="O"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -953,12 +1006,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x50"
                 android:text="P"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -971,12 +1025,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x5B"
                 android:text="{\n["
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -989,12 +1044,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x5D"
                 android:text="}\n]"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1007,12 +1063,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x5C"
                 android:text="|\n\\"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1025,12 +1082,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x67"
                 android:text="7"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1043,12 +1101,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x68"
                 android:text="8"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1061,12 +1120,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x69"
                 android:text="9"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1079,12 +1139,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x6B"
                 android:text="+"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
         </LinearLayout>
@@ -1104,12 +1165,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="20"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x14"
                 android:text="Caps Lock"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1122,12 +1184,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x41"
                 android:text="A"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1140,12 +1203,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x53"
                 android:text="S"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1158,12 +1222,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x44"
                 android:text="D"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1176,12 +1241,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x46"
                 android:text="F"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1194,12 +1260,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x47"
                 android:text="G"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1212,12 +1279,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x48"
                 android:text="H"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1230,12 +1298,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x4A"
                 android:text="J"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1248,12 +1317,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x4B"
                 android:text="K"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1266,12 +1336,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x4C"
                 android:text="L"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1284,12 +1355,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x3B"
                 android:text=":\n;"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1302,12 +1374,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0xDE"
                 android:text="&quot;\n'"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1320,12 +1393,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="20"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x0A"
                 android:text="Enter"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1338,12 +1412,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x64"
                 android:text="4"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1356,12 +1431,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x65"
                 android:text="5"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1374,12 +1450,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x66"
                 android:text="6"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1392,12 +1469,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x6B"
                 android:text="+"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
 
@@ -1418,12 +1496,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="20"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x10"
                 android:text="Shift"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1436,12 +1515,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x5A"
                 android:text="Z"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1454,12 +1534,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x58"
                 android:text="X"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1472,12 +1553,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x43"
                 android:text="C"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1490,12 +1572,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x56"
                 android:text="V"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1508,12 +1591,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x42"
                 android:text="B"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1526,12 +1610,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x4E"
                 android:text="N"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1544,12 +1629,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x4D"
                 android:text="M"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1562,12 +1648,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x2C"
                 android:text="&lt;\n,"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1580,12 +1667,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x2E"
                 android:text=">\n."
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1598,12 +1686,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x2F"
                 android:text="?\n\/"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1616,12 +1705,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="20"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x10"
                 android:text="Shift"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1634,12 +1724,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x26"
                 android:text="↑"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1652,12 +1743,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x61"
                 android:text="1"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1670,12 +1762,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x62"
                 android:text="2"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1688,12 +1781,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x63"
                 android:text="3"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1706,12 +1800,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x0A"
                 android:text="Enter"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
         </LinearLayout>
 
@@ -1730,12 +1825,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="13"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x11"
                 android:text="Ctrl"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1748,12 +1844,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="13"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x020C"
                 android:text="Win"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1766,12 +1863,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="13"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x12"
                 android:text="Alt"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1784,12 +1882,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="50"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x20"
                 android:text="Space"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1802,12 +1901,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="13"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x12"
                 android:text="Alt"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1820,12 +1920,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x020D"
                 android:text="Opt"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1838,12 +1939,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="13"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x11"
                 android:text="Ctrl"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1856,12 +1958,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x25"
                 android:text="←"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1874,12 +1977,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x28"
                 android:text="↓"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1892,12 +1996,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x27"
                 android:text="→"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1910,12 +2015,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x60"
                 android:text="0"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1928,12 +2034,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x6E"
                 android:text="Del"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
 
             <Button
@@ -1946,12 +2053,13 @@
                 android:layout_marginBottom="-3dp"
                 android:layout_weight="10"
                 android:gravity="clip_horizontal|clip_vertical"
-                android:inputType="text"
+                android:inputType="none"
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:tag="0x0A"
                 android:text="Enter"
+                android:textAllCaps="false"
                 android:textSize="8sp" />
         </LinearLayout>
 
