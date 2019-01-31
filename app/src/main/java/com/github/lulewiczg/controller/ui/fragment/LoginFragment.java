@@ -81,20 +81,21 @@ public class LoginFragment extends Fragment {
 
             @Override
             public void run() {
+                FragmentActivity activity = getActivity();
                 Client client;
                 try {
                     client = Client.create(address, port, timeout, serverTimeout);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    getActivity().runOnUiThread(Helper.displayToast(context, R.string.connect_error));
+                    Helper.displayToast(context, activity, R.string.connect_error);
                     return;
                 } finally {
-                    getActivity().runOnUiThread(Helper.closeProgress(progress));
+                    Helper.closeProgress(progress, activity);
                 }
                 Response response;
-                response = client.login(password, Build.MANUFACTURER + ", " + Build.MODEL, getIP(), getActivity());
+                response = client.login(password, Build.MANUFACTURER + ", " + Build.MODEL, getIP(), activity);
                 if (response.getStatus() != Status.OK) {
-                    getActivity().runOnUiThread(Helper.displayToast(context, R.string.connect_invalid_password));
+                    Helper.displayToast(context, activity, R.string.connect_invalid_password);
                 } else {
                     startActivity(intent);
                 }

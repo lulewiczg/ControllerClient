@@ -1,5 +1,6 @@
 package com.github.lulewiczg.controller.common;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -40,17 +41,16 @@ public final class Helper {
      * Displays toast
      *
      * @param c     context
+     * @param a     activity
      * @param title message title
-     * @return thread
      */
-    public static Thread displayToast(final Context c, final int title) {
-        Thread t = new Thread() {
+    public static void displayToast(final Context c, Activity a, final int title) {
+        a.runOnUiThread(new Thread() {
             @Override
             public void run() {
                 Toast.makeText(c, title, Toast.LENGTH_LONG).show();
             }
-        };
-        return t;
+        });
     }
 
     /**
@@ -81,16 +81,15 @@ public final class Helper {
      * Closes progress dialog.
      *
      * @param dialog dialog
-     * @return thread
+     * @param a      activity
      */
-    public static Thread closeProgress(final ProgressDialog dialog) {
-        Thread t = new Thread() {
+    public static void closeProgress(final ProgressDialog dialog, Activity a) {
+        a.runOnUiThread(new Thread() {
             @Override
             public void run() {
                 dialog.dismiss();
             }
-        };
-        return t;
+        });
     }
 
 }
