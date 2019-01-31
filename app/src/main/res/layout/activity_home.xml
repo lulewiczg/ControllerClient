@@ -1,131 +1,38 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.github.lulewiczg.controller.ui.activity.HomeActivity">
+    tools:context=".ui.activity.HomeActivity">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.design.widget.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:minHeight="?actionBarSize"
-                android:padding="@dimen/appbar_padding"
-                android:text="@string/app_name"
-                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
-        </android.support.design.widget.AppBarLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/address.host"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/address.input.address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.40"
-                android:hint="@string/address.host"
-                android:inputType="textUri" />
-
-            <TextView
-                android:id="@+id/colon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=":"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <EditText
-                android:id="@+id/address.input.port"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.15"
-                android:hint="@string/address.port"
-                android:inputType="numberDecimal" />
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:orientation="horizontal">
+            android:gravity="center"
+            android:minHeight="?actionBarSize"
+            android:padding="@dimen/appbar_padding"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 
-            <TextView
-                android:id="@+id/password.label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/password.label"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-        </LinearLayout>
-
-        <LinearLayout
+        <android.support.design.widget.TabLayout
+            android:id="@+id/home_tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:orientation="horizontal">
+            android:background="?attr/colorPrimary" />
+    </android.support.design.widget.AppBarLayout>
 
-            <EditText
-                android:id="@+id/password.input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/password.label"
-                android:inputType="numberDecimal" />
+    <com.github.lulewiczg.controller.ui.component.NonSwipeableViewPager
+        android:id="@+id/view_pager_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:paddingTop="?android:attr/actionBarSize" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/connect.button"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:onClick="click"
-                android:text="@string/connect.button" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>
