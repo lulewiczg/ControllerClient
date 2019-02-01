@@ -10,6 +10,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/keyLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:gravity="center_horizontal|center_vertical"
+            android:inputType="none"
+            android:text="@string/keyboard.pressed" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -452,7 +461,7 @@
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
-                android:tag="0x83"
+                android:tag="0xC0"
                 android:text="~\n`"
                 android:textAllCaps="false"
                 android:textSize="8sp" />
@@ -1691,7 +1700,7 @@
                 android:paddingEnd="0dp"
                 android:singleLine="false"
                 android:tag="0x2F"
-                android:text="?\n\/"
+                android:text="\n\/"
                 android:textAllCaps="false"
                 android:textSize="8sp" />
 

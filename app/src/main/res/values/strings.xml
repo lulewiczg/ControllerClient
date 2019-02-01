@@ -30,6 +30,8 @@
     <string name="mouse.button1">LEFT</string>
     <string name="mouse.button2">RIGHT</string>
     <string name="mouse.button3">MIDDLE</string>
+    
+    <string name="keyboard.pressed">Pressed keys</string>
 
     <string name="settings">Settings</string>
     <string name="setting.mouse.speed">Mouse speed</string>
