@@ -16,4 +16,6 @@ public class KeyReleaseAction extends KeyAction {
         super(key);
     }
 
+    public KeyReleaseAction() {
+    }
 }

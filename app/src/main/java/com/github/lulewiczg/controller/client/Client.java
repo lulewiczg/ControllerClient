@@ -16,6 +16,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -34,6 +37,8 @@ public class Client implements Closeable {
     private static Client instance;
     private ExecutorService exec;
     private AtomicInteger awaitingActions;
+    private List<Action> recorded = new CopyOnWriteArrayList<>();
+    private boolean record;
 
     /**
      * Creates new client.
@@ -107,6 +112,9 @@ public class Client implements Closeable {
      * @return server response
      */
     public Response doAction(Action action, Activity activity) {
+        if (record) {
+            recorded.add(action);
+        }
         AsyncTask<Action, Integer, Response> sendTask = new AsyncTask<Action, Integer, Response>() {
             @Override
             protected Response doInBackground(Action... params) {
@@ -142,6 +150,9 @@ public class Client implements Closeable {
      * @param activity
      */
     public void doActionFast(final Action action, final Activity activity) {
+        if (record) {
+            recorded.add(action);
+        }
         Thread t = new Thread() {
             @Override
             public void run() {
@@ -176,5 +187,28 @@ public class Client implements Closeable {
 
     public int getAwaitingActions() {
         return awaitingActions.get();
+    }
+
+    /**
+     * Records executed actions.
+     */
+    public void record() {
+        record = true;
+    }
+
+    /**
+     * Stops recording and returns results.
+     *
+     * @return recorded actions
+     */
+    public List<Action> stopRecord() {
+        record = false;
+        List<Action> res = recorded;
+        recorded = new ArrayList<>();
+        return res;
+    }
+
+    public boolean isRecord() {
+        return record;
     }
 }

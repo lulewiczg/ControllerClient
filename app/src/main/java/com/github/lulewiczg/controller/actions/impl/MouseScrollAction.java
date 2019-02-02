@@ -16,6 +16,9 @@ public class MouseScrollAction extends LoginRequiredAction {
         this.lines = lines;
     }
 
+    public MouseScrollAction() {
+    }
+
     @Override
     public boolean isValid() {
         return lines != 0;

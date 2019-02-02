@@ -15,5 +15,6 @@ public class MouseButtonReleaseAction extends MouseButtonAction {
         super(key);
     }
 
-
+    public MouseButtonReleaseAction() {
+    }
 }

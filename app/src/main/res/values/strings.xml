@@ -14,10 +14,11 @@
     <string name="text.send.label">Text to send</string>
     <string name="text.send.button">Send text</string>
     <string name="action.login">Login</string>
-    <string name="action.settings">Settings</string>
-    <string name="action.text">Send text</string>
-    <string name="action.keyboard">Keyboard</string>
+    <string name="action.settings">Options</string>
+    <string name="action.text">Text</string>
+    <string name="action.keyboard">Keys</string>
     <string name="action.mouse">Mouse</string>
+    <string name="action.binds">Binds</string>
     <string name="alert.exit.title">Closing connection</string>
     <string name="alert.exit.message">Are you sure you want to exit?\nYou will lose connection with this computer.</string>
     <string name="alert.connection.lost.title">Connection lost</string>
@@ -30,8 +31,13 @@
     <string name="mouse.button1">LEFT</string>
     <string name="mouse.button2">RIGHT</string>
     <string name="mouse.button3">MIDDLE</string>
-    
+
     <string name="keyboard.pressed">Pressed keys</string>
+
+    <string name="bind.start">Action record started…</string>
+    <string name="bind.empty">Nothing recorded!</string>
+    <string name="bind.stop">Bind created!</string>
+
 
     <string name="settings">Settings</string>
     <string name="setting.mouse.speed">Mouse speed</string>
@@ -53,5 +59,8 @@
     <string name="setting.connect.timeout.description">Time to wait for server to connect</string>
     <string name="setting.server.timeout">Server timeout</string>
     <string name="setting.server.timeout.description">Time to wait until error when server does not respond</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

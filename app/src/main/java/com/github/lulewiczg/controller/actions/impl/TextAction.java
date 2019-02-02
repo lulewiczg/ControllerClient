@@ -17,6 +17,9 @@ public class TextAction extends LoginRequiredAction {
         this.text = text;
     }
 
+    public TextAction() {
+    }
+
     @Override
     public boolean isValid() {
         return !text.isEmpty();

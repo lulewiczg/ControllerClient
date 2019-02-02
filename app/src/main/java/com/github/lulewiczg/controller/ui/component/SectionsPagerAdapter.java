@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.github.lulewiczg.controller.ui.fragment.BindsFragment;
 import com.github.lulewiczg.controller.R;
 import com.github.lulewiczg.controller.ui.fragment.KeyboardFragment;
 import com.github.lulewiczg.controller.ui.fragment.MouseFragment;
@@ -24,7 +25,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments = new ArrayList<>();
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.action_mouse, R.string.action_text, R.string.action_keyboard, R.string.action_settings};
+    private static final int[] TAB_TITLES = new int[]{R.string.action_mouse, R.string.action_text, R.string.action_keyboard, R.string.action_binds, R.string.action_settings};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -32,6 +33,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         fragments.add(new MouseFragment());
         fragments.add(new TextFragment());
         fragments.add(new KeyboardFragment());
+        fragments.add(new BindsFragment());
         fragments.add(new SettingsFragment());
         mContext = context;
     }

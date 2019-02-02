@@ -122,7 +122,7 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
     }
 
     /**
-     * Handles mouse button click.
+     * Handles mouse button runBind.
      *
      * @param key   key
      * @param event event

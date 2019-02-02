@@ -24,4 +24,6 @@ public class MouseMoveAction extends LoginRequiredAction {
         this.dy = dy;
     }
 
+    public MouseMoveAction() {
+    }
 }

@@ -13,8 +13,7 @@ public abstract class MouseButtonAction extends LoginRequiredAction {
     public static final int MMB = 1 << 3;
     protected int key;
 
-    protected MouseButtonAction() {
-        super();
+    public MouseButtonAction() {
     }
 
     public MouseButtonAction(int key) {

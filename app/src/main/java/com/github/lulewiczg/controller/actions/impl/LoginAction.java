@@ -20,4 +20,6 @@ public class LoginAction extends Action {
         this.ip = ip;
     }
 
+    public LoginAction() {
+    }
 }

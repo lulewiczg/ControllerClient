@@ -10,6 +10,9 @@ public abstract class KeyAction extends LoginRequiredAction {
     private static final long serialVersionUID = 1L;
     protected int key;
 
+    public KeyAction() {
+    }
+
     public KeyAction(int key) {
         this.key = key;
     }
