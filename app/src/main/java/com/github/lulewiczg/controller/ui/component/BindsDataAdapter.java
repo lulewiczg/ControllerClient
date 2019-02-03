@@ -19,7 +19,6 @@ import java.util.List;
  */
 public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.BindHolder> {
     private final Activity activity;
-    private final RecyclerView listView;
     private List<Bind> binds;
 
     /**
@@ -46,7 +45,7 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
     /**
      * View for bind.
      */
-    public static class BindHolder extends RecyclerView.ViewHolder {
+    public class BindHolder extends RecyclerView.ViewHolder {
         private TextView bindName;
         private TextView bindDetails;
 
@@ -57,10 +56,9 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
         }
     }
 
-    public BindsDataAdapter(List<Bind> binds, Activity activity, RecyclerView listView) {
+    public BindsDataAdapter(List<Bind> binds, Activity activity) {
         this.binds = binds;
         this.activity = activity;
-        this.listView = listView;
     }
 
     @Override

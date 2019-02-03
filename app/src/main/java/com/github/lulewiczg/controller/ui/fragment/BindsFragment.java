@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -22,6 +23,7 @@ import com.github.lulewiczg.controller.common.Helper;
 import com.github.lulewiczg.controller.model.Bind;
 import com.github.lulewiczg.controller.ui.component.BindsDataAdapter;
 import com.github.lulewiczg.controller.ui.component.GsonMapper;
+import com.github.lulewiczg.controller.ui.listener.RecyclerTouchListener;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -135,35 +137,23 @@ public class BindsFragment extends Fragment {
 
         layoutManger = new LinearLayoutManager(getContext());
         listView.setLayoutManager(layoutManger);
+        dataAdapter = new BindsDataAdapter(getBinds(), getActivity());
+        listView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
+        listView.setItemAnimator(new DefaultItemAnimator());
+        listView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), listView, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                dataAdapter.runBind(position);
+            }
 
-        dataAdapter = new BindsDataAdapter(getBinds(), getActivity(), listView);
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+        registerForContextMenu(listView);
+
         listView.setAdapter(dataAdapter);
-        listView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            @Override
-            public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
-                if (motionEvent.getAction() != MotionEvent.ACTION_DOWN) {
-                    return false;
-                }
-                View child = listView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
-                if (child == null) {
-                    return false;
-                }
-                int pos = listView.getChildAdapterPosition(child);
-                dataAdapter.runBind(pos);
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean b) {
-
-            }
-        });
-
         addButton = view.findViewById(R.id.addBind);
         saveButton = view.findViewById(R.id.saveBind);
 
