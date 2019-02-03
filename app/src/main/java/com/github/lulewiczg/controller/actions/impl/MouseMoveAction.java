@@ -26,4 +26,12 @@ public class MouseMoveAction extends LoginRequiredAction {
 
     public MouseMoveAction() {
     }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+        str.append(super.toString());
+        str.append(", dx:").append(dx).append(", dy:").append(dy);
+        return str.toString();
+    }
 }

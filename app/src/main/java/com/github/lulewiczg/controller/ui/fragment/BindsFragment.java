@@ -2,18 +2,22 @@ package com.github.lulewiczg.controller.ui.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.github.lulewiczg.controller.R;
 import com.github.lulewiczg.controller.actions.Action;
@@ -42,6 +46,7 @@ public class BindsFragment extends Fragment {
     }.getType();
 
     private FloatingActionButton addButton;
+    private FloatingActionButton cancelButton;
     private FloatingActionButton saveButton;
 
     private RecyclerView listView;
@@ -49,35 +54,73 @@ public class BindsFragment extends Fragment {
     private BindsDataAdapter dataAdapter;
 
 
+    /**
+     * Starts recording binds.
+     */
     public void bind() {
         Client.get().record();
         updateButtons();
         Helper.displayToast(getContext(), getActivity(), R.string.bind_start);
     }
 
+    /**
+     * Cancels recording.
+     */
+    public void cancel() {
+        Client.get().stopRecord();
+        updateButtons();
+        Helper.displayToast(getContext(), getActivity(), R.string.bind_cancel);
+    }
+
+    /**
+     * Saves bind.
+     */
     private void save() {
-        List<Action> actions = Client.get().stopRecord();
+        final List<Action> actions = Client.get().stopRecord();
         updateButtons();
         if (actions.isEmpty()) {
             Helper.displayToast(getContext(), getActivity(), R.string.bind_empty);
             return;
         }
-        Helper.displayToast(getContext(), getActivity(), R.string.bind_stop);
-        Bind bind = new Bind("test", actions);
-        saveBind(bind);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        final EditText input = new EditText(getContext());
+        builder.setTitle(getResources().getString(R.string.bind_name));
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
 
-        dataAdapter.add(bind);
-        dataAdapter.notifyDataSetChanged();
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                String name = input.getText().toString();
+                Bind bind = new Bind(name, actions);
+                saveBind(bind);
+                dataAdapter.add(bind);
+                dataAdapter.notifyDataSetChanged();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
     }
 
+    /**
+     * Updates buttons visibility.
+     */
     @SuppressLint("RestrictedApi")
     private void updateButtons() {
         if (Client.get().isRecord()) {
             addButton.setVisibility(View.INVISIBLE);
             saveButton.setVisibility(View.VISIBLE);
+            cancelButton.setVisibility(View.VISIBLE);
         } else {
             addButton.setVisibility(View.VISIBLE);
             saveButton.setVisibility(View.INVISIBLE);
+            cancelButton.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -156,6 +199,7 @@ public class BindsFragment extends Fragment {
         listView.setAdapter(dataAdapter);
         addButton = view.findViewById(R.id.addBind);
         saveButton = view.findViewById(R.id.saveBind);
+        cancelButton = view.findViewById(R.id.cancelBind);
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,6 +211,12 @@ public class BindsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 save();
+            }
+        });
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancel();
             }
         });
         updateButtons();

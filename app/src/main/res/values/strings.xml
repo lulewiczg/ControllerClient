@@ -36,7 +36,11 @@
 
     <string name="bind.start">Action record started…</string>
     <string name="bind.empty">Nothing recorded!</string>
+    <string name="bind.cancel">Action record cancelled!</string>
     <string name="bind.stop">Bind created!</string>
+
+    <string name="bind.name">Enter bind name</string>
+
 
 
     <string name="settings">Settings</string>

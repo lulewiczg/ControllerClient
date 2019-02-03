@@ -39,6 +39,11 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
         List<Action> actions = binds.get(pos).getActions();
         for (Action a : actions) {
             Client.get().doActionFast(a, activity);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
