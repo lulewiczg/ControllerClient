@@ -39,15 +39,21 @@
     <string name="bind.cancel">Action record cancelled!</string>
     <string name="bind.stop">Bind created!</string>
 
+    <string name="bind.exec.start">Bind execution started…</string>
+    <string name="bind.exec.end">Bind execution finished!</string>
+
+
     <string name="bind.name">Enter bind name</string>
-
-
 
     <string name="settings">Settings</string>
     <string name="setting.mouse.speed">Mouse speed</string>
     <string name="setting.mouse.queue">Max queue size</string>
     <string name="setting.mouse.frequency">Interval</string>
     <string name="setting.mouse.limiter.type">Limiter type</string>
+
+    <string name="setting.bind.frequency">Bind interval</string>
+    <string name="setting.bind.frequency.description">Bind pause interval between executions</string>
+
 
     <string name="setting.mouse.interval.type.description.off">Send movement with given frequency</string>
     <string name="setting.mouse.interval.type.description.on">Send movement with max queue length</string>
@@ -58,6 +64,7 @@
     <string name="setting.mouse.scroll.description">Sets speed of mouse scroll</string>
     <string name="setting.mouse.group">Mouse settings</string>
     <string name="setting.connection.group">Connection settings</string>
+    <string name="setting.bind.group">Binds settings</string>
     <string name="setting.mouse.impl.group">Mouse movement settings</string>
     <string name="setting.connect.timeout">Connection timeout</string>
     <string name="setting.connect.timeout.description">Time to wait for server to connect</string>

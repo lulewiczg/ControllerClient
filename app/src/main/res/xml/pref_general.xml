@@ -57,4 +57,16 @@
         </PreferenceCategory>
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/setting.bind.group">
+
+        <EditTextPreference
+            android:defaultValue="100"
+            android:inputType="number"
+            android:key="bind.interval"
+            android:summary="@string/setting.bind.frequency.description"
+            android:title="@string/setting.bind.frequency" />
+
+    </PreferenceCategory>
+
+
 </PreferenceScreen>

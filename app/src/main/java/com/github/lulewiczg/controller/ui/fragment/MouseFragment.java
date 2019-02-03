@@ -18,6 +18,7 @@ import com.github.lulewiczg.controller.actions.impl.MouseButtonReleaseAction;
 import com.github.lulewiczg.controller.actions.impl.MouseMoveAction;
 import com.github.lulewiczg.controller.actions.impl.MouseScrollAction;
 import com.github.lulewiczg.controller.client.Client;
+import com.github.lulewiczg.controller.common.ClientLimiter;
 import com.github.lulewiczg.controller.common.Consts;
 
 
@@ -34,13 +35,9 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
     private VelocityTracker vt;
     private double dx;
     private double dy;
-    private long prevTime = System.currentTimeMillis();
-    private long time;
     private int speed;
     private int scrollSpeed;
-    private int interval;
-    private int maxQueue;
-    private boolean queueLimiter;
+    private ClientLimiter limiter;
 
     /**
      * Loads required preferences
@@ -49,9 +46,6 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this.getContext());
         speed = Integer.valueOf(settings.getString(Consts.MOUSE_SPEED, "50"));
         scrollSpeed = Integer.valueOf(settings.getString(Consts.MOUSE_SCROLL_SPEED, "20"));
-        interval = Integer.valueOf(settings.getString(Consts.MOUSE_INTERVAL, "50"));
-        maxQueue = Integer.valueOf(settings.getString(Consts.MOUSE_QUEUE, "3"));
-        queueLimiter = settings.getBoolean(Consts.MOUSE_LIMITER_TYPE, true);
     }
 
     @Override
@@ -81,6 +75,7 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
         mouseButton2.setOnTouchListener(this);
         mouseButton3.setOnTouchListener(this);
         vt = VelocityTracker.obtain();
+        limiter = new ClientLimiter(getContext());
         return view;
     }
 
@@ -108,7 +103,7 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
      * @param event event
      */
     private void processScroll(MotionEvent event) {
-        if (checkIfDo()) {
+        if (limiter.checkIfDo()) {
             int index = event.getActionIndex();
             int pointerId = event.getPointerId(index);
             vt.addMovement(event);
@@ -139,19 +134,6 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
         Client.get().doAction(action, getActivity());
     }
 
-    /**
-     * Checks if mouse move action can be sent.
-     *
-     * @return true if can
-     */
-    private boolean checkIfDo() {
-        if (queueLimiter) {
-            return Client.get().getAwaitingActions() <= maxQueue;
-        } else {
-            time = System.currentTimeMillis();
-            return time - prevTime > interval;
-        }
-    }
 
     /**
      * Handles mouse move action
@@ -166,10 +148,9 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
         vt.computeCurrentVelocity(speed);
         dx += vt.getXVelocity(pointerId);
         dy += vt.getYVelocity(pointerId);
-        if (dx != 0 && dy != 0 && checkIfDo()) {
+        if (dx != 0 && dy != 0 && limiter.checkIfDo()) {
             MouseMoveAction action = new MouseMoveAction(dx, dy);
             Client.get().doActionFast(action, getActivity());
-            prevTime = time;
             dx = 0;
             dy = 0;
         }

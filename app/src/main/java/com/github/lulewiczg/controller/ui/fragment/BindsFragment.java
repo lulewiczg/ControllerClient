@@ -186,12 +186,13 @@ public class BindsFragment extends Fragment {
         listView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), listView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
+                Helper.displayToast(getContext(), getActivity(), R.string.bind_exec_start);
                 dataAdapter.runBind(position);
+                Helper.displayToast(getContext(), getActivity(), R.string.bind_exec_end);
             }
 
             @Override
             public void onLongClick(View view, int position) {
-
             }
         }));
         registerForContextMenu(listView);

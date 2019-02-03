@@ -9,7 +9,7 @@ public final class Consts {
     public static final String PASSWORD = "pwd";
     public static final String BINDS = "binds";
 
-
+    public static final String BIND_INTERVAL = "bind.interval";
     public static final String SERVER_TIMEOUT = "server.timeout";
     public static final String CONNECT_TIMEOUT = "connect.timeout";
     public static final String MOUSE_SPEED = "mouse.speed";

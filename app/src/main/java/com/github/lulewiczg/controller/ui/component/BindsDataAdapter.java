@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.github.lulewiczg.controller.R;
 import com.github.lulewiczg.controller.actions.Action;
 import com.github.lulewiczg.controller.client.Client;
+import com.github.lulewiczg.controller.common.ClientLimiter;
 import com.github.lulewiczg.controller.model.Bind;
 
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.List;
 public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.BindHolder> {
     private final Activity activity;
     private List<Bind> binds;
+    private ClientLimiter limiter;
 
     /**
      * Adds new bind to list.
@@ -35,15 +37,13 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
      *
      * @param pos bind position
      */
-    public void runBind(int pos) {
+    public synchronized void runBind(int pos) {
         List<Action> actions = binds.get(pos).getActions();
         for (Action a : actions) {
+            do {
+                limiter.waitForBind();
+            } while ((!limiter.checkIfDo()));
             Client.get().doActionFast(a, activity);
-            try {
-                Thread.sleep(200);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -64,6 +64,7 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
     public BindsDataAdapter(List<Bind> binds, Activity activity) {
         this.binds = binds;
         this.activity = activity;
+        this.limiter = new ClientLimiter(activity);
     }
 
     @Override
