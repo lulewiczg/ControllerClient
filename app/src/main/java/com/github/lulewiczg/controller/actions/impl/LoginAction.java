@@ -14,12 +14,17 @@ public class LoginAction extends Action {
     private String info;
     private String ip;
 
+    public LoginAction() {
+    }
+
     public LoginAction(String password, String info, String ip) {
         this.password = password;
         this.info = info;
         this.ip = ip;
     }
 
-    public LoginAction() {
+    @Override
+    public String getDescription() {
+        return "Login";
     }
 }

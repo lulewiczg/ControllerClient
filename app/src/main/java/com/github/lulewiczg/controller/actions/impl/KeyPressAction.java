@@ -11,11 +11,15 @@ public class KeyPressAction extends KeyAction {
 
     private static final long serialVersionUID = 1L;
 
-    public KeyPressAction() {
-    }
-
     public KeyPressAction(int key) {
         super(key);
     }
 
+    public KeyPressAction() {
+    }
+
+    @Override
+    public String getDescription() {
+        return String.format("Key Press: [%s]", key);
+    }
 }

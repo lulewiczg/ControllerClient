@@ -6,7 +6,6 @@ import com.github.lulewiczg.controller.actions.KeyAction;
  * Action for key release event.
  *
  * @author Grzegurz
- *
  */
 public class KeyReleaseAction extends KeyAction {
 
@@ -17,5 +16,10 @@ public class KeyReleaseAction extends KeyAction {
     }
 
     public KeyReleaseAction() {
+    }
+
+    @Override
+    public String getDescription() {
+        return String.format("Key Release: [%s]", key);
     }
 }

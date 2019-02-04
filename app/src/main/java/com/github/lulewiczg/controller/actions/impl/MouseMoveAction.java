@@ -34,4 +34,9 @@ public class MouseMoveAction extends LoginRequiredAction {
         str.append(", dx:").append(dx).append(", dy:").append(dy);
         return str.toString();
     }
+
+    @Override
+    public String getDescription() {
+        return String.format("Cursor: [%s, %s]", dx, dy);
+    }
 }

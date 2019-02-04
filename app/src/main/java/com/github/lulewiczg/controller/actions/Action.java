@@ -7,7 +7,7 @@ import java.io.Serializable;
  *
  * @author Grzegurz
  */
-public class Action implements Serializable {
+public abstract class Action implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,5 +21,7 @@ public class Action implements Serializable {
         str.append("Action: ").append(this.getClass().getSimpleName());
         return str.toString();
     }
+
+    public abstract String getDescription();
 
 }

@@ -17,4 +17,9 @@ public class MouseButtonReleaseAction extends MouseButtonAction {
 
     public MouseButtonReleaseAction() {
     }
+
+    @Override
+    public String getDescription() {
+        return String.format("Mouse Release: [%s]", key);
+    }
 }

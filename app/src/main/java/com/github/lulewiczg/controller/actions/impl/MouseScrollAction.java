@@ -32,4 +32,8 @@ public class MouseScrollAction extends LoginRequiredAction {
         return str.toString();
     }
 
+    @Override
+    public String getDescription() {
+        return String.format("Scroll: [%s]", lines);
+    }
 }

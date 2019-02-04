@@ -32,4 +32,9 @@ public class TextAction extends LoginRequiredAction {
         str.append(", ").append(text);
         return str.toString();
     }
+
+    @Override
+    public String getDescription() {
+        return String.format("Text: [%s]", text);
+    }
 }

@@ -11,4 +11,8 @@ public class DisconnectAction extends Action {
 
     private static final long serialVersionUID = 1L;
 
+    @Override
+    public String getDescription() {
+        return "Disconnect";
+    }
 }

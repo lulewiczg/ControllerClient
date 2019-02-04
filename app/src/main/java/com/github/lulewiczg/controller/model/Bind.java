@@ -1,7 +1,5 @@
 package com.github.lulewiczg.controller.model;
 
-import android.text.TextUtils;
-
 import com.github.lulewiczg.controller.actions.Action;
 
 import java.io.Serializable;
@@ -52,6 +50,11 @@ public class Bind implements Serializable {
      * @return details
      */
     public String buildDetails() {
-        return TextUtils.join(", ", actions);
+        StringBuilder builder = new StringBuilder();
+        for (Action a : actions) {
+            builder.append(a.getDescription()).append(", ");
+        }
+        builder.replace(builder.length() - 2, builder.length() - 1, "");
+        return builder.toString();
     }
 }
