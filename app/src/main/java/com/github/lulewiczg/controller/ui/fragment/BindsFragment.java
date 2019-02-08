@@ -23,6 +23,7 @@ import android.widget.EditText;
 import com.github.lulewiczg.controller.R;
 import com.github.lulewiczg.controller.actions.Action;
 import com.github.lulewiczg.controller.client.Client;
+import com.github.lulewiczg.controller.common.ClientLimiter;
 import com.github.lulewiczg.controller.common.Consts;
 import com.github.lulewiczg.controller.common.Helper;
 import com.github.lulewiczg.controller.model.Bind;
@@ -38,6 +39,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Fragment for creating binds.
@@ -55,6 +57,8 @@ public class BindsFragment extends Fragment {
     private LinearLayoutManager layoutManger;
     private BindsDataAdapter dataAdapter;
 
+    private AtomicBoolean bindRunning = new AtomicBoolean(false);
+
 
     /**
      * Starts recording binds.
@@ -62,7 +66,7 @@ public class BindsFragment extends Fragment {
     public void bind() {
         Client.get().record();
         updateButtons();
-        Helper.displayToast(getContext(), getActivity(), R.string.bind_start);
+        Helper.displayToast(getActivity(), R.string.bind_start);
     }
 
     /**
@@ -71,7 +75,7 @@ public class BindsFragment extends Fragment {
     public void cancel() {
         Client.get().stopRecord();
         updateButtons();
-        Helper.displayToast(getContext(), getActivity(), R.string.bind_cancel);
+        Helper.displayToast(getActivity(), R.string.bind_cancel);
     }
 
     /**
@@ -81,7 +85,7 @@ public class BindsFragment extends Fragment {
         final List<Action> actions = Client.get().stopRecord();
         updateButtons();
         if (actions.isEmpty()) {
-            Helper.displayToast(getContext(), getActivity(), R.string.bind_empty);
+            Helper.displayToast(getActivity(), R.string.bind_empty);
             return;
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -192,6 +196,12 @@ public class BindsFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        dataAdapter.setLimiter(new ClientLimiter(getContext()));
+    }
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_binds, container, false);
@@ -244,9 +254,13 @@ public class BindsFragment extends Fragment {
         return new RecyclerTouchListener(getContext(), listView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Helper.displayToast(getContext(), getActivity(), R.string.bind_exec_start);
+                if (bindRunning.get()) {
+                    return;
+                }
+                bindRunning.set(true);
                 dataAdapter.runBind(position);
-                Helper.displayToast(getContext(), getActivity(), R.string.bind_exec_end);
+                Helper.displayToast(getActivity(), R.string.bind_exec_end);
+                bindRunning.set(false);
             }
 
             @Override
@@ -266,7 +280,7 @@ public class BindsFragment extends Fragment {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 if (dataAdapter.getLongPressPos() > -1) {
-                    Helper.displayToast(getContext(), getActivity(), R.string.no);//TODO
+                    Helper.displayToast(getActivity(), R.string.no);//TODO
                 }
                 dataAdapter.setLongPressPos(-1);
                 return false;

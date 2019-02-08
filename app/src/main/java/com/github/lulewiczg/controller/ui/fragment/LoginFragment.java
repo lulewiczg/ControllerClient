@@ -87,7 +87,7 @@ public class LoginFragment extends Fragment {
                     client = Client.create(address, port, timeout, serverTimeout);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Helper.displayToast(context, activity, R.string.connect_error);
+                    Helper.displayToast(activity, R.string.connect_error);
                     return;
                 } finally {
                     Helper.closeProgress(progress, activity);
@@ -95,7 +95,7 @@ public class LoginFragment extends Fragment {
                 Response response;
                 response = client.login(password, Build.MANUFACTURER + ", " + Build.MODEL, getIP(), activity);
                 if (response.getStatus() != Status.OK) {
-                    Helper.displayToast(context, activity, R.string.connect_invalid_password);
+                    Helper.displayToast(activity, R.string.connect_invalid_password);
                 } else {
                     startActivity(intent);
                 }

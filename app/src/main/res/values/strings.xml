@@ -39,7 +39,6 @@
     <string name="bind.cancel">Action record cancelled!</string>
     <string name="bind.stop">Bind created!</string>
 
-    <string name="bind.exec.start">Bind execution started…</string>
     <string name="bind.exec.end">Bind execution finished!</string>
     <string name="bind.menu.edit">Edit</string>
     <string name="bind.menu.delete">Delete</string>

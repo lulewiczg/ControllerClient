@@ -40,15 +40,14 @@ public final class Helper {
     /**
      * Displays toast
      *
-     * @param c     context
      * @param a     activity
      * @param title message title
      */
-    public static void displayToast(final Context c, Activity a, final int title) {
+    public static void displayToast(final Activity a, final int title) {
         a.runOnUiThread(new Thread() {
             @Override
             public void run() {
-                Toast.makeText(c, title, Toast.LENGTH_LONG).show();
+                Toast.makeText(a, title, Toast.LENGTH_LONG).show();
             }
         });
     }

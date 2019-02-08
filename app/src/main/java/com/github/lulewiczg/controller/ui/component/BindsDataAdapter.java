@@ -107,4 +107,8 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
     public void setLongPressPos(int longPressPos) {
         this.longPressPos = longPressPos;
     }
+
+    public void setLimiter(ClientLimiter limiter) {
+        this.limiter = limiter;
+    }
 }
