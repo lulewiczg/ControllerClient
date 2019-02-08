@@ -15,6 +15,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -25,6 +26,7 @@ import com.github.lulewiczg.controller.client.Client;
 import com.github.lulewiczg.controller.common.Consts;
 import com.github.lulewiczg.controller.common.Helper;
 import com.github.lulewiczg.controller.model.Bind;
+import com.github.lulewiczg.controller.ui.component.BindMenuBuilder;
 import com.github.lulewiczg.controller.ui.component.BindsDataAdapter;
 import com.github.lulewiczg.controller.ui.component.GsonMapper;
 import com.github.lulewiczg.controller.ui.listener.RecyclerTouchListener;
@@ -145,6 +147,24 @@ public class BindsFragment extends Fragment {
     }
 
     /**
+     * Saves bind.
+     *
+     * @param pos bind position
+     */
+    private void delete(int pos) {
+        SharedPreferences prefs = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = prefs.edit();
+        String oldValue = prefs.getString(Consts.BINDS, null);
+        Gson gson = getGson();
+        if (oldValue != null) {
+            List<Bind> list = gson.fromJson(oldValue, TYPE);
+            list.remove(pos);
+            edit.putString(Consts.BINDS, gson.toJson(list));
+        }
+        edit.apply();
+    }
+
+    /**
      * Builds Gson with custom serializers.
      *
      * @return gson
@@ -180,21 +200,11 @@ public class BindsFragment extends Fragment {
 
         layoutManger = new LinearLayoutManager(getContext());
         listView.setLayoutManager(layoutManger);
-        dataAdapter = new BindsDataAdapter(getBinds(), getActivity());
+        dataAdapter = new BindsDataAdapter(getBinds(), getActivity(), getMenuBuilder());
         listView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
         listView.setItemAnimator(new DefaultItemAnimator());
-        listView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), listView, new RecyclerTouchListener.ClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                Helper.displayToast(getContext(), getActivity(), R.string.bind_exec_start);
-                dataAdapter.runBind(position);
-                Helper.displayToast(getContext(), getActivity(), R.string.bind_exec_end);
-            }
+        listView.addOnItemTouchListener(getItemClickListener());
 
-            @Override
-            public void onLongClick(View view, int position) {
-            }
-        }));
         registerForContextMenu(listView);
 
         listView.setAdapter(dataAdapter);
@@ -225,4 +235,64 @@ public class BindsFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Builds item touch listener.
+     *
+     * @return touch listener
+     */
+    private RecyclerTouchListener getItemClickListener() {
+        return new RecyclerTouchListener(getContext(), listView, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Helper.displayToast(getContext(), getActivity(), R.string.bind_exec_start);
+                dataAdapter.runBind(position);
+                Helper.displayToast(getContext(), getActivity(), R.string.bind_exec_end);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+                dataAdapter.setLongPressPos(position);
+            }
+        });
+    }
+
+    /**
+     * Builds menu builder.
+     *
+     * @return menu builders
+     */
+    private BindMenuBuilder getMenuBuilder() {
+        return new BindMenuBuilder(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                if (dataAdapter.getLongPressPos() > -1) {
+                    Helper.displayToast(getContext(), getActivity(), R.string.no);//TODO
+                }
+                dataAdapter.setLongPressPos(-1);
+                return false;
+            }
+        }, new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                final long pos = dataAdapter.getLongPressPos();
+                if (pos > -1) {
+                    Helper.displayAlert(getContext(), R.string.bind_menu_delete, R.string.bind_delete_confirm, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            delete((int) pos);
+                            dataAdapter.remove((int) pos);
+                            dataAdapter.notifyDataSetChanged();
+                        }
+                    }, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+
+                }
+                dataAdapter.setLongPressPos(-1);
+                return false;
+            }
+        });
+    }
 }

@@ -20,32 +20,10 @@ import java.util.List;
  */
 public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.BindHolder> {
     private final Activity activity;
+    private final BindMenuBuilder menuBuilder;
     private List<Bind> binds;
     private ClientLimiter limiter;
-
-    /**
-     * Adds new bind to list.
-     *
-     * @param bind bind
-     */
-    public void add(Bind bind) {
-        binds.add(bind);
-    }
-
-    /**
-     * Executes bind.
-     *
-     * @param pos bind position
-     */
-    public synchronized void runBind(int pos) {
-        List<Action> actions = binds.get(pos).getActions();
-        for (Action a : actions) {
-            do {
-                limiter.waitForBind();
-            } while ((!limiter.checkIfDo()));
-            Client.get().doActionFast(a, activity);
-        }
-    }
+    private int longPressPos = -1;
 
     /**
      * View for bind.
@@ -58,12 +36,47 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
             super(v);
             bindName = v.findViewById(R.id.bindName);
             bindDetails = v.findViewById(R.id.bindDetails);
+            v.setOnCreateContextMenuListener(menuBuilder);
         }
     }
 
-    public BindsDataAdapter(List<Bind> binds, Activity activity) {
+    /**
+     * Adds new bind to list.
+     *
+     * @param bind bind
+     */
+    public void add(Bind bind) {
+        binds.add(bind);
+    }
+
+    /**
+     * Removes bind
+     *
+     * @param pos bind pos
+     */
+    public void remove(int pos) {
+        binds.remove(pos);
+    }
+
+    /**
+     * Executes bind.
+     *
+     * @param pos bind position
+     */
+    public synchronized void runBind(int pos) {
+        List<Action> actions = binds.get(pos).getActions();
+        for (Action a : actions) {
+            while ((!limiter.checkIfDo())) {
+                limiter.waitForBind();
+            }
+            Client.get().doActionFast(a, activity);
+        }
+    }
+
+    public BindsDataAdapter(List<Bind> binds, Activity activity, BindMenuBuilder menuBuilder) {
         this.binds = binds;
         this.activity = activity;
+        this.menuBuilder = menuBuilder;
         this.limiter = new ClientLimiter(activity);
     }
 
@@ -85,5 +98,13 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
     @Override
     public int getItemCount() {
         return binds.size();
+    }
+
+    public int getLongPressPos() {
+        return longPressPos;
+    }
+
+    public void setLongPressPos(int longPressPos) {
+        this.longPressPos = longPressPos;
     }
 }
