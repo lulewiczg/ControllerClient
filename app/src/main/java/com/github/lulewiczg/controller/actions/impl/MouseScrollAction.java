@@ -20,11 +20,6 @@ public class MouseScrollAction extends LoginRequiredAction {
     }
 
     @Override
-    public boolean isValid() {
-        return lines != 0;
-    }
-
-    @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
         str.append(super.toString());

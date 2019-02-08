@@ -21,11 +21,6 @@ public class TextAction extends LoginRequiredAction {
     }
 
     @Override
-    public boolean isValid() {
-        return !text.isEmpty();
-    }
-
-    @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
         str.append(super.toString());

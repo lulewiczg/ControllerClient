@@ -11,10 +11,6 @@ public abstract class Action implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public boolean isValid() {
-        return true;
-    }
-
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
@@ -23,5 +19,4 @@ public abstract class Action implements Serializable {
     }
 
     public abstract String getDescription();
-
 }

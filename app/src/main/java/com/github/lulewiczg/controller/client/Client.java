@@ -77,7 +77,7 @@ public class Client implements Closeable {
         socket.connect(new InetSocketAddress(address, port), timeout);
         out = new ObjectOutputStream(socket.getOutputStream());
         in = new ObjectInputStream(socket.getInputStream());
-        exec = Executors.newCachedThreadPool();
+        exec = Executors.newSingleThreadExecutor();
         awaitingActions = new AtomicInteger(0);
     }
 
@@ -124,6 +124,7 @@ public class Client implements Closeable {
                     out.flush();
                     return (Response) in.readObject();
                 } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
                     return new Response(com.github.lulewiczg.controller.common.Status.NOT_OK, e);
                 } finally {
                     awaitingActions.decrementAndGet();
@@ -132,10 +133,11 @@ public class Client implements Closeable {
 
         };
         sendTask.execute(action);
-        Response response = null;
+        Response response;
         try {
             response = sendTask.get(5, TimeUnit.SECONDS);
         } catch (Exception e) {
+            e.printStackTrace();
             return new Response(Status.NOT_OK);
         }
         sendTask.cancel(true);

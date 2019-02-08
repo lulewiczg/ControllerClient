@@ -13,12 +13,6 @@ public class MouseMoveAction extends LoginRequiredAction {
     private double dx;
     private double dy;
 
-    @Override
-    public boolean isValid() {
-        return Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01;
-
-    }
-
     public MouseMoveAction(double dx, double dy) {
         this.dx = dx;
         this.dy = dy;
