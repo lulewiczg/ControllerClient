@@ -66,7 +66,7 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
     public synchronized void runBind(int pos) {
         List<Action> actions = binds.get(pos).getActions();
         for (Action a : actions) {
-            while ((!limiter.checkIfDo())) {
+            while ((!limiter.checkIfDoBind())) {
                 limiter.waitForBind();
             }
             Client.get().doActionFast(a, activity);

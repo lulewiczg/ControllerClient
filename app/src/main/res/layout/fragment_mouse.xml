@@ -16,11 +16,11 @@
             android:orientation="horizontal">
 
             <View
+                android:id="@+id/mouse.touchpad"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
-                android:background="#bfbfbf"
-                android:id="@+id/mouse.touchpad"
+                android:background="?android:colorBackground"
                 android:clickable="true" />
 
             <View
@@ -28,7 +28,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="95"
-                android:background="#9f9f9f"
+                android:background="?android:colorControlHighlight"
                 android:id="@+id/mouse.scroll"
                 android:clickable="true" />
         </LinearLayout>

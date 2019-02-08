@@ -3,14 +3,14 @@
     <PreferenceCategory android:title="@string/setting.connection.group">
 
         <EditTextPreference
-            android:defaultValue="10000"
+            android:defaultValue="2000"
             android:inputType="number"
             android:key="connect.timeout"
             android:summary="@string/setting.connect.timeout.description"
             android:title="@string/setting.connect.timeout" />
 
         <EditTextPreference
-            android:defaultValue="2000"
+            android:defaultValue="10000"
             android:inputType="number"
             android:key="server.timeout"
             android:summary="@string/setting.server.timeout.description"
@@ -26,7 +26,7 @@
             android:title="@string/setting.mouse.speed" />
 
         <EditTextPreference
-            android:defaultValue="20"
+            android:defaultValue="3"
             android:inputType="number"
             android:key="mouse.scroll.speed"
             android:summary="@string/setting.mouse.scroll.description"
@@ -49,7 +49,7 @@
                 android:title="@string/setting.mouse.frequency" />
 
             <EditTextPreference
-                android:defaultValue="3"
+                android:defaultValue="2"
                 android:inputType="number"
                 android:key="mouse.queue"
                 android:summary="@string/setting.mouse.queue.description"

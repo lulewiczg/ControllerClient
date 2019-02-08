@@ -44,6 +44,21 @@ public class ClientLimiter {
         }
     }
 
+
+    /**
+     * Checks if next bind action can be sent.
+     *
+     * @return true if can
+     */
+    public boolean checkIfDoBind() {
+        time = System.currentTimeMillis();
+        boolean result = time - prevTime > bindInterval;
+        if (result) {
+            prevTime = time;
+        }
+        return result;
+    }
+
     /**
      * Waits to send next action.
      */
