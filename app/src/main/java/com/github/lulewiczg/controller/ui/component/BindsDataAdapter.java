@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.lulewiczg.controller.R;
@@ -32,7 +31,7 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
         private TextView bindName;
         private TextView bindDetails;
 
-        public BindHolder(LinearLayout v) {
+        public BindHolder(ViewGroup v) {
             super(v);
             bindName = v.findViewById(R.id.bindName);
             bindDetails = v.findViewById(R.id.bindDetails);
@@ -82,7 +81,7 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
 
     @Override
     public BindsDataAdapter.BindHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext())
+        ViewGroup v = (ViewGroup) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.bind_layout, parent, false);
         BindHolder holder = new BindHolder(v);
         return holder;

@@ -253,14 +253,19 @@ public class BindsFragment extends Fragment {
     private RecyclerTouchListener getItemClickListener() {
         return new RecyclerTouchListener(getContext(), listView, new RecyclerTouchListener.ClickListener() {
             @Override
-            public void onClick(View view, int position) {
+            public void onClick(View view, final int position) {
                 if (bindRunning.get()) {
                     return;
                 }
-                bindRunning.set(true);
-                dataAdapter.runBind(position);
-                Helper.displayToast(getActivity(), R.string.bind_exec_end);
-                bindRunning.set(false);
+                new Thread() {
+                    @Override
+                    public void run() {
+                        bindRunning.set(true);
+                        dataAdapter.runBind(position);
+                        Helper.displayToast(getActivity(), R.string.bind_exec_end);
+                        bindRunning.set(false);
+                    }
+                }.start();
             }
 
             @Override
