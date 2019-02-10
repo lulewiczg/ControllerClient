@@ -10,10 +10,10 @@ import com.github.lulewiczg.controller.actions.LoginRequiredAction;
 public class MouseMoveAction extends LoginRequiredAction {
 
     private static final long serialVersionUID = 1L;
-    private double dx;
-    private double dy;
+    private long dx;
+    private long dy;
 
-    public MouseMoveAction(double dx, double dy) {
+    public MouseMoveAction(long dx, long dy) {
         this.dx = dx;
         this.dy = dy;
     }

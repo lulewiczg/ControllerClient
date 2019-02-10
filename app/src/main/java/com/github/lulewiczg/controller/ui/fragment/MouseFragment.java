@@ -149,7 +149,7 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
         dx += vt.getXVelocity(pointerId);
         dy += vt.getYVelocity(pointerId);
         if (dx != 0 && dy != 0 && limiter.checkIfDo()) {
-            MouseMoveAction action = new MouseMoveAction(dx, dy);
+            MouseMoveAction action = new MouseMoveAction((long) dx, (long) dy);
             Client.get().doActionFast(action, getActivity());
             dx = 0;
             dy = 0;
