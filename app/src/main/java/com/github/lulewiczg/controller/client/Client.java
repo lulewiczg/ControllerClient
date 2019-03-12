@@ -182,7 +182,6 @@ public class Client implements Closeable {
             exec.shutdownNow();
         }
         Helper.close(in);
-        Helper.close(out);
         Helper.close(socket);
         instance = new DisconnectedClient();
     }

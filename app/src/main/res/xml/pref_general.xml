@@ -31,42 +31,38 @@
             android:key="mouse.scroll.speed"
             android:summary="@string/setting.mouse.scroll.description"
             android:title="@string/setting.mouse.scroll" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/setting.mouse.impl.group">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:disableDependentsState="true"
+            android:key="mouse.limiter.type"
+            android:summaryOff="@string/setting.mouse.interval.type.description.off"
+            android:summaryOn="@string/setting.mouse.interval.type.description.on"
+            android:title="@string/setting.mouse.limiter.type" />
 
-        <PreferenceCategory android:title="@string/setting.mouse.impl.group">
-            <SwitchPreference
-                android:defaultValue="true"
-                android:disableDependentsState="true"
-                android:key="mouse.limiter.type"
-                android:summaryOff="@string/setting.mouse.interval.type.description.off"
-                android:summaryOn="@string/setting.mouse.interval.type.description.on"
-                android:title="@string/setting.mouse.limiter.type" />
+        <EditTextPreference
+            android:defaultValue="50"
+            android:inputType="number"
+            android:key="mouse.interval"
+            android:summary="@string/setting.mouse.interval.description"
+            android:title="@string/setting.mouse.frequency" />
 
-            <EditTextPreference
-                android:defaultValue="50"
-                android:inputType="number"
-                android:key="mouse.interval"
-                android:summary="@string/setting.mouse.interval.description"
-                android:title="@string/setting.mouse.frequency" />
-
-            <EditTextPreference
-                android:defaultValue="2"
-                android:inputType="number"
-                android:key="mouse.queue"
-                android:summary="@string/setting.mouse.queue.description"
-                android:title="@string/setting.mouse.queue" />
-        </PreferenceCategory>
+        <EditTextPreference
+            android:defaultValue="2"
+            android:inputType="number"
+            android:key="mouse.queue"
+            android:summary="@string/setting.mouse.queue.description"
+            android:title="@string/setting.mouse.queue" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/setting.bind.group">
-
         <EditTextPreference
             android:defaultValue="100"
             android:inputType="number"
             android:key="bind.interval"
             android:summary="@string/setting.bind.frequency.description"
             android:title="@string/setting.bind.frequency" />
-
     </PreferenceCategory>
-
 
 </PreferenceScreen>
