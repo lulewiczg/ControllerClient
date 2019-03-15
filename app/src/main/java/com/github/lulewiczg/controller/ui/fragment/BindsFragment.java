@@ -295,7 +295,7 @@ public class BindsFragment extends Fragment {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 final long pos = dataAdapter.getLongPressPos();
                 if (pos > -1) {
-                    Helper.displayAlert(getContext(), R.string.bind_menu_delete, R.string.bind_delete_confirm, new DialogInterface.OnClickListener() {
+                    Helper.displayAlert(getActivity(), R.string.bind_menu_delete, R.string.bind_delete_confirm, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             delete((int) pos);

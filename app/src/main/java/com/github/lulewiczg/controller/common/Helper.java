@@ -3,7 +3,6 @@ package com.github.lulewiczg.controller.common;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -57,25 +56,30 @@ public final class Helper {
     /**
      * Displays alert message.
      *
-     * @param c       context
+     * @param a       activity
      * @param title   alert title
      * @param msg     alert message
      * @param onTrue  accept listener
      * @param onFalse deny listener
      */
-    public static void displayAlert(Context c, int title, int msg, DialogInterface.OnClickListener onTrue,
-                                    DialogInterface.OnClickListener onFalse) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(c);
-        builder.setTitle(title);
-        builder.setIcon(android.R.drawable.ic_dialog_alert);
-        builder.setMessage(msg);
-        if (onFalse == null) {
-            builder.setPositiveButton(R.string.ok, onTrue);
-        } else {
-            builder.setPositiveButton(R.string.yes, onTrue);
-            builder.setNegativeButton(R.string.no, onFalse);
-        }
-        builder.create().show();
+    public static void displayAlert(final Activity a, final int title, final int msg, final DialogInterface.OnClickListener onTrue,
+                                    final DialogInterface.OnClickListener onFalse) {
+        a.runOnUiThread(new Thread() {
+            @Override
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(a);
+                builder.setTitle(title);
+                builder.setIcon(android.R.drawable.ic_dialog_alert);
+                builder.setMessage(msg);
+                if (onFalse == null) {
+                    builder.setPositiveButton(R.string.ok, onTrue);
+                } else {
+                    builder.setPositiveButton(R.string.yes, onTrue);
+                    builder.setNegativeButton(R.string.no, onFalse);
+                }
+                builder.create().show();
+            }
+        });
     }
 
     /**
