@@ -278,14 +278,14 @@ public class BindsFragment extends Fragment {
     /**
      * Builds menu builder.
      *
-     * @return menu builders
+     * @return menu builder
      */
     private BindMenuBuilder getMenuBuilder() {
         return new BindMenuBuilder(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 if (dataAdapter.getLongPressPos() > -1) {
-                    Helper.displayToast(getActivity(), R.string.no);//TODO
+                    Helper.displayToast(getActivity(), R.string.not_implemented);//TODO
                 }
                 dataAdapter.setLongPressPos(-1);
                 return false;

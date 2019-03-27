@@ -73,7 +73,6 @@
     <string name="setting.server.timeout">Server timeout</string>
     <string name="setting.server.timeout.description">Time to wait until error when server does not respond</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="not.implemented">Not implemented yet</string>
 
 </resources>
