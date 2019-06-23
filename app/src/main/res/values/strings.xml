@@ -20,13 +20,17 @@
     <string name="action.mouse">Mouse</string>
     <string name="action.binds">Binds</string>
     <string name="alert.exit.title">Closing connection</string>
-    <string name="alert.exit.message">Are you sure you want to exit?\nYou will lose connection with this computer.</string>
+    <string name="alert.exit.message">Are you sure you want to exit?\nYou can either disconnect or shutdown server.</string>
     <string name="alert.connection.lost.title">Connection lost</string>
     <string name="alert.connection.lost.message">Connection with computer is lost</string>
 
     <string name="ok">OK</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="exit.disconnect">Disconnect</string>
+    <string name="exit.shutdown">Stop server</string>
 
     <string name="mouse.button1">LEFT</string>
     <string name="mouse.button2">RIGHT</string>
