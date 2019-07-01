@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/password.label"
-                android:inputType="numberDecimal" />
+                android:inputType="text" />
 
         </LinearLayout>
 
