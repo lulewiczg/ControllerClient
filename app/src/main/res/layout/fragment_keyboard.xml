@@ -784,7 +784,7 @@
                 android:paddingStart="7dp"
                 android:paddingEnd="0dp"
                 android:singleLine="false"
-                android:tag="0x2D"
+                android:tag="0x6D"
                 android:text="-"
                 android:textAllCaps="false"
                 android:textSize="8sp" />
