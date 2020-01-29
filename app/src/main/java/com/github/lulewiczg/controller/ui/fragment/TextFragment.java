@@ -29,12 +29,7 @@ public class TextFragment extends ActionFragment {
         View view = inflater.inflate(R.layout.fragment_text, container, false);
         textInput = view.findViewById(R.id.text_send_input);
         View button = view.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendText();
-            }
-        });
+        button.setOnClickListener(v -> sendText());
         return view;
     }
 }

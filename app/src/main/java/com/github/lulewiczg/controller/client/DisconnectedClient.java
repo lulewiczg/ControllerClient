@@ -17,22 +17,18 @@ public class DisconnectedClient extends Client {
     @Override
     public void doActionFast(Action action, final Activity activity) {
         Helper.displayAlert(activity, R.string.alert_connection_lost_title, R.string.alert_connection_lost_message,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                        activity.finish();
-                    }
+                (dialog, id) -> {
+                    dialog.cancel();
+                    activity.finish();
                 }, null);
     }
 
     @Override
     public Response doAction(Action action, final Activity activity) {
         Helper.displayAlert(activity, R.string.alert_connection_lost_title, R.string.alert_connection_lost_message,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                        activity.finish();
-                    }
+                (dialog, id) -> {
+                    dialog.cancel();
+                    activity.finish();
                 }, null);
         return new Response(Status.NOT_OK);
     }

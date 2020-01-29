@@ -45,12 +45,17 @@ public final class Helper {
      * @param title message title
      */
     public static void displayToast(final Activity a, final int title) {
-        a.runOnUiThread(new Thread() {
-            @Override
-            public void run() {
-                Toast.makeText(a, title, Toast.LENGTH_LONG).show();
-            }
-        });
+        a.runOnUiThread(() -> Toast.makeText(a, title, Toast.LENGTH_LONG).show());
+    }
+
+    /**
+     * Displays toast
+     *
+     * @param a   activity
+     * @param txt message
+     */
+    public static void displayToast(final Activity a, final String txt) {
+        a.runOnUiThread(() -> Toast.makeText(a, txt, Toast.LENGTH_LONG).show());
     }
 
     /**
@@ -64,21 +69,18 @@ public final class Helper {
      */
     public static void displayAlert(final Activity a, final int title, final int msg, final DialogInterface.OnClickListener onTrue,
                                     final DialogInterface.OnClickListener onFalse) {
-        a.runOnUiThread(new Thread() {
-            @Override
-            public void run() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(a);
-                builder.setTitle(title);
-                builder.setIcon(android.R.drawable.ic_dialog_alert);
-                builder.setMessage(msg);
-                if (onFalse == null) {
-                    builder.setPositiveButton(R.string.ok, onTrue);
-                } else {
-                    builder.setPositiveButton(R.string.yes, onTrue);
-                    builder.setNegativeButton(R.string.no, onFalse);
-                }
-                builder.create().show();
+        a.runOnUiThread(() -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(a);
+            builder.setTitle(title);
+            builder.setIcon(android.R.drawable.ic_dialog_alert);
+            builder.setMessage(msg);
+            if (onFalse == null) {
+                builder.setPositiveButton(R.string.ok, onTrue);
+            } else {
+                builder.setPositiveButton(R.string.yes, onTrue);
+                builder.setNegativeButton(R.string.no, onFalse);
             }
+            builder.create().show();
         });
     }
 
@@ -89,12 +91,7 @@ public final class Helper {
      * @param a      activity
      */
     public static void closeProgress(final ProgressDialog dialog, Activity a) {
-        a.runOnUiThread(new Thread() {
-            @Override
-            public void run() {
-                dialog.dismiss();
-            }
-        });
+        a.runOnUiThread(dialog::dismiss);
     }
 
     /**

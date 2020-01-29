@@ -6,6 +6,7 @@
     <string name="connect.button">Connect</string>
     <string name="connect.error">Connection error!</string>
     <string name="connect.invalid.password">Invalid password!</string>
+    <string name="connect.unknown.error">Error: </string>
     <string name="connect.loading.title">Connecting...</string>
     <string name="connect.loading">Wait, while application tries to connect...</string>
     <string name="connect.address.empty">Address can not be empty</string>

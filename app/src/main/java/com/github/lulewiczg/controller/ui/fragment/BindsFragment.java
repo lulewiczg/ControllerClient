@@ -222,24 +222,9 @@ public class BindsFragment extends Fragment {
         saveButton = view.findViewById(R.id.saveBind);
         cancelButton = view.findViewById(R.id.cancelBind);
 
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bind();
-            }
-        });
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                save();
-            }
-        });
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cancel();
-            }
-        });
+        addButton.setOnClickListener(v -> bind());
+        saveButton.setOnClickListener(v -> save());
+        cancelButton.setOnClickListener(v -> cancel());
         updateButtons();
 
         return view;
@@ -281,37 +266,31 @@ public class BindsFragment extends Fragment {
      * @return menu builder
      */
     private BindMenuBuilder getMenuBuilder() {
-        return new BindMenuBuilder(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                if (dataAdapter.getLongPressPos() > -1) {
-                    Helper.displayToast(getActivity(), R.string.not_implemented);//TODO
-                }
-                dataAdapter.setLongPressPos(-1);
-                return false;
+        return new BindMenuBuilder(menuItem -> {
+            if (dataAdapter.getLongPressPos() > -1) {
+                Helper.displayToast(getActivity(), R.string.not_implemented);//TODO
             }
-        }, new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                final long pos = dataAdapter.getLongPressPos();
-                if (pos > -1) {
-                    Helper.displayAlert(getActivity(), R.string.bind_menu_delete, R.string.bind_delete_confirm, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            delete((int) pos);
-                            dataAdapter.remove((int) pos);
-                            dataAdapter.notifyDataSetChanged();
-                        }
-                    }, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                        }
-                    });
+            dataAdapter.setLongPressPos(-1);
+            return false;
+        }, menuItem -> {
+            final long pos = dataAdapter.getLongPressPos();
+            if (pos > -1) {
+                Helper.displayAlert(getActivity(), R.string.bind_menu_delete, R.string.bind_delete_confirm, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        delete((int) pos);
+                        dataAdapter.remove((int) pos);
+                        dataAdapter.notifyDataSetChanged();
+                    }
+                }, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
 
-                }
-                dataAdapter.setLongPressPos(-1);
-                return false;
             }
+            dataAdapter.setLongPressPos(-1);
+            return false;
         });
     }
 }

@@ -8,43 +8,33 @@ public class Response implements Serializable {
 
     private Status status;
 
-    private Exception exception;
-
-    public Response(Status status, Exception exception) {
-        this.status = status;
-        this.exception = exception;
-    }
+    private String exceptionStr;
 
     public Response(Status status) {
         this.status = status;
+    }
+
+    public Response(Status status, Exception exception) {
+        this.status = status;
+        if (exception != null) {
+            this.exceptionStr = exception.toString();
+        }
     }
 
     public Status getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public Exception getException() {
-        return exception;
-    }
-
-    public void setException(Exception exception) {
-        this.exception = exception;
+    public String getExceptionStr() {
+        return exceptionStr;
     }
 
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
         str.append("Response: ").append(status);
-        if (exception != null) {
-            str.append(", cause:\n").append(exception.toString());
-            for (StackTraceElement element : exception.getStackTrace()) {
-                str.append(element.toString());
-                str.append("\n");
-            }
+        if (exceptionStr != null) {
+            str.append(", cause:\n").append(exceptionStr);
         }
         return str.toString();
     }

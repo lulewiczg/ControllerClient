@@ -94,8 +94,10 @@ public class LoginFragment extends Fragment {
                 }
                 Response response;
                 response = client.login(password, Build.MANUFACTURER + ", " + Build.MODEL, getIP(), activity);
-                if (response.getStatus() != Status.OK) {
+                if (response.getStatus() == Status.INVALID_PASSWORD) {
                     Helper.displayToast(activity, R.string.connect_invalid_password);
+                } else if (response.getStatus() == Status.NOT_OK) {
+                    Helper.displayToast(activity, getResources().getString(R.string.connect_unknown_error) + response.getExceptionStr());
                 } else {
                     startActivity(intent);
                 }

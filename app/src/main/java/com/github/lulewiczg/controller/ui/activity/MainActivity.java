@@ -54,36 +54,34 @@ public class MainActivity extends AppCompatActivity {
      * Displays tri-button alert message when trying to exit.
      */
     public void displayExitAlert() {
-        runOnUiThread(new Thread() {
-            @Override
-            public void run() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle(R.string.alert_exit_message);
-                builder.setIcon(android.R.drawable.ic_dialog_alert);
-                builder.setMessage(R.string.alert_exit_message);
-                builder.setNegativeButton(R.string.exit_disconnect, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        client.logout(MainActivity.this);
-                        Helper.close(client);
-                        MainActivity.super.onBackPressed();
-                    }
-                });
-                builder.setNeutralButton(R.string.exit_shutdown, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        client.doAction(new ServerStopAction(), MainActivity.this);
-                        Helper.close(client);
-                        MainActivity.super.onBackPressed();
-                    }
-                });
-                builder.setPositiveButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-                builder.create().show();
-            }
+        runOnUiThread(() -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle(R.string.alert_exit_message);
+            builder.setIcon(android.R.drawable.ic_dialog_alert);
+            builder.setMessage(R.string.alert_exit_message);
+            builder.setNegativeButton(R.string.exit_disconnect, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    client.logout(MainActivity.this);
+                    Helper.close(client);
+                    MainActivity.super.onBackPressed();
+                }
+            });
+            builder.setNeutralButton(R.string.exit_shutdown, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    client.doAction(new ServerStopAction(), MainActivity.this);
+                    Helper.close(client);
+                    MainActivity.super.onBackPressed();
+                }
+            });
+            builder.setPositiveButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            builder.create().show();
+
         });
     }
 }

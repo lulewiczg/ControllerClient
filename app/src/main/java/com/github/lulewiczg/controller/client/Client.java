@@ -155,22 +155,18 @@ public class Client implements Closeable {
         if (record) {
             recorded.add(action);
         }
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    awaitingActions.incrementAndGet();
-                    out.writeObject(action);
-                    out.flush();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Helper.close(Client.this);
-                } finally {
-                    awaitingActions.decrementAndGet();
-                }
+        exec.submit(() -> {
+            try {
+                awaitingActions.incrementAndGet();
+                out.writeObject(action);
+                out.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+                Helper.close(Client.this);
+            } finally {
+                awaitingActions.decrementAndGet();
             }
-        };
-        exec.submit(t);
+        });
     }
 
     /**
