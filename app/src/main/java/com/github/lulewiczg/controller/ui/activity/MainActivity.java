@@ -3,8 +3,8 @@ package com.github.lulewiczg.controller.ui.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.tabs.TabLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.WindowManager;
 
 import com.github.lulewiczg.controller.R;
