@@ -15,6 +15,13 @@
             android:key="server.timeout"
             android:summary="@string/setting.server.timeout.description"
             android:title="@string/setting.server.timeout" />
+
+        <EditTextPreference
+            android:defaultValue="60"
+            android:inputType="number"
+            android:key="server.ping"
+            android:summary="@string/setting.server.ping.interval.description"
+            android:title="@string/setting.server.ping.interval" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/setting.mouse.group">

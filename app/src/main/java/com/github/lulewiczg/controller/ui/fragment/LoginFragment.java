@@ -44,6 +44,7 @@ public class LoginFragment extends Fragment {
     private EditText addressInput;
     private EditText portInput;
     private EditText passwordInput;
+    private int ping;
 
     /**
      * Returns phone addressInput, no other method available for IPv4 formatting.
@@ -84,7 +85,7 @@ public class LoginFragment extends Fragment {
                 FragmentActivity activity = getActivity();
                 Client client;
                 try {
-                    client = Client.create(address, port, timeout, serverTimeout);
+                    client = Client.create(address, port, timeout, serverTimeout, ping);
                 } catch (IOException e) {
                     e.printStackTrace();
                     Helper.displayToast(activity, R.string.connect_error);
@@ -121,6 +122,7 @@ public class LoginFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         FragmentActivity activity = getActivity();
@@ -159,5 +161,6 @@ public class LoginFragment extends Fragment {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getContext());
         timeout = Integer.parseInt(settings.getString(Consts.CONNECT_TIMEOUT, "2000"));
         serverTimeout = Integer.parseInt(settings.getString(Consts.SERVER_TIMEOUT, "10000"));
+        ping = Integer.parseInt(settings.getString(Consts.SERVER_PING, "60"));
     }
 }

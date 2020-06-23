@@ -190,8 +190,7 @@ public class BindsFragment extends Fragment {
             return new ArrayList<>();
         }
         Gson gson = getGson();
-        List<Bind> savedBinds = gson.fromJson(oldValue, TYPE);
-        return savedBinds;
+        return gson.fromJson(oldValue, TYPE);
     }
 
     @Override

@@ -77,6 +77,8 @@
     <string name="setting.connect.timeout.description">Time to wait for server to connect</string>
     <string name="setting.server.timeout">Server timeout</string>
     <string name="setting.server.timeout.description">Time to wait until error when server does not respond</string>
+    <string name="setting.server.ping.interval">Ping interval</string>
+    <string name="setting.server.ping.interval.description">Interval in seconds to keep connection alive</string>
 
     <string name="not.implemented">Not implemented yet</string>
 

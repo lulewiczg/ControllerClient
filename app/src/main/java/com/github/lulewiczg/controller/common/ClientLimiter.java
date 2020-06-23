@@ -20,9 +20,9 @@ public class ClientLimiter {
 
     public ClientLimiter(Context context) {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
-        interval = Integer.valueOf(settings.getString(Consts.MOUSE_INTERVAL, "50"));
-        bindInterval = Integer.valueOf(settings.getString(Consts.BIND_INTERVAL, "100"));
-        maxQueue = Integer.valueOf(settings.getString(Consts.MOUSE_QUEUE, "3"));
+        interval = Integer.parseInt(settings.getString(Consts.MOUSE_INTERVAL, "50"));
+        bindInterval = Integer.parseInt(settings.getString(Consts.BIND_INTERVAL, "100"));
+        maxQueue = Integer.parseInt(settings.getString(Consts.MOUSE_QUEUE, "3"));
         queueLimiter = settings.getBoolean(Consts.MOUSE_LIMITER_TYPE, true);
     }
 

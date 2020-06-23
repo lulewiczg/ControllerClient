@@ -11,6 +11,7 @@ public final class Consts {
 
     public static final String BIND_INTERVAL = "bind.interval";
     public static final String SERVER_TIMEOUT = "server.timeout";
+    public static final String SERVER_PING = "server.ping";
     public static final String CONNECT_TIMEOUT = "connect.timeout";
     public static final String MOUSE_SPEED = "mouse.speed";
     public static final String MOUSE_QUEUE = "mouse.queue";

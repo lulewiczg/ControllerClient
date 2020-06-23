@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import com.github.lulewiczg.controller.actions.Action;
 import com.github.lulewiczg.controller.actions.impl.DisconnectAction;
 import com.github.lulewiczg.controller.actions.impl.LoginAction;
+import com.github.lulewiczg.controller.actions.impl.PingAction;
 import com.github.lulewiczg.controller.common.Helper;
 import com.github.lulewiczg.controller.common.Response;
 import com.github.lulewiczg.controller.common.Status;
@@ -17,10 +18,13 @@ import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -39,6 +43,9 @@ public class Client implements Closeable {
     private AtomicInteger awaitingActions;
     private List<Action> recorded = new CopyOnWriteArrayList<>();
     private boolean record;
+    private ScheduledExecutorService pingExec;
+    private long lastActionTime;
+    private long ping;
 
     /**
      * Creates new client.
@@ -47,14 +54,15 @@ public class Client implements Closeable {
      * @param port          port
      * @param timeout       timeout
      * @param serverTimeout server timeout
+     * @param ping          ping interval
      * @return client
      * @throws IOException the IOException
      */
-    public static Client create(String address, int port, int timeout, int serverTimeout) throws IOException {
+    public static Client create(String address, int port, int timeout, int serverTimeout, int ping) throws IOException {
         if (instance != null) {
             Helper.close(instance);
         }
-        instance = new Client(address, port, timeout, serverTimeout);
+        instance = new Client(address, port, timeout, serverTimeout, ping);
         return instance;
     }
 
@@ -71,14 +79,17 @@ public class Client implements Closeable {
         awaitingActions = new AtomicInteger(0);
     }
 
-    private Client(String address, int port, int timeout, int serverTimeout) throws IOException {
+    private Client(String address, int port, int timeout, int serverTimeout, int ping) throws IOException {
+        this();
+        this.ping = ping;
         socket = new Socket();
         socket.setSoTimeout(serverTimeout);
         socket.connect(new InetSocketAddress(address, port), timeout);
         out = new ObjectOutputStream(socket.getOutputStream());
         in = new ObjectInputStream(socket.getInputStream());
         exec = Executors.newSingleThreadExecutor();
-        awaitingActions = new AtomicInteger(0);
+        pingExec = Executors.newSingleThreadScheduledExecutor();
+        pingExec.scheduleWithFixedDelay(this::pingCheck, ping, ping, TimeUnit.SECONDS);
     }
 
     /**
@@ -122,6 +133,7 @@ public class Client implements Closeable {
                     awaitingActions.incrementAndGet();
                     out.writeObject(params[0]);
                     out.flush();
+                    lastActionTime = System.currentTimeMillis();
                     return (Response) in.readObject();
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
@@ -176,6 +188,7 @@ public class Client implements Closeable {
     public void close() {
         if (exec != null) {
             exec.shutdownNow();
+            pingExec.shutdown();
         }
         Helper.close(in);
         Helper.close(socket);
@@ -204,6 +217,19 @@ public class Client implements Closeable {
         recorded = new ArrayList<>();
         return res;
     }
+
+    private void pingCheck() {
+        if (System.currentTimeMillis() - lastActionTime >= ping * 1000) {
+            try {
+                out.writeObject(new PingAction());
+                out.flush();
+                lastActionTime = System.currentTimeMillis();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     public boolean isRecord() {
         return record;
