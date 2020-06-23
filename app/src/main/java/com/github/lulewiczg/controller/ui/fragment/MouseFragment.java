@@ -44,8 +44,8 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
      */
     private void loadPreferences() {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this.getContext());
-        speed = Integer.valueOf(settings.getString(Consts.MOUSE_SPEED, "50"));
-        scrollSpeed = Integer.valueOf(settings.getString(Consts.MOUSE_SCROLL_SPEED, "20"));
+        speed = Integer.parseInt(settings.getString(Consts.MOUSE_SPEED, "50"));
+        scrollSpeed = Integer.parseInt(settings.getString(Consts.MOUSE_SCROLL_SPEED, "20"));
     }
 
     @Override

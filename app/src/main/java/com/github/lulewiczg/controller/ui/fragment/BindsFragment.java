@@ -37,6 +37,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -93,23 +94,15 @@ public class BindsFragment extends Fragment {
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
 
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-                String name = input.getText().toString();
-                Bind bind = new Bind(name, actions);
-                saveBind(bind);
-                dataAdapter.add(bind);
-                dataAdapter.notifyDataSetChanged();
-            }
+        builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
+            dialog.dismiss();
+            String name = input.getText().toString();
+            Bind bind = new Bind(name, actions);
+            saveBind(bind);
+            dataAdapter.add(bind);
+            dataAdapter.notifyDataSetChanged();
         });
-        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
+        builder.setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.cancel());
         builder.show();
     }
 
@@ -140,7 +133,7 @@ public class BindsFragment extends Fragment {
         String oldValue = prefs.getString(Consts.BINDS, null);
         Gson gson = getGson();
         if (oldValue == null) {
-            edit.putString(Consts.BINDS, gson.toJson(Arrays.asList(bind), TYPE));
+            edit.putString(Consts.BINDS, gson.toJson(Collections.singletonList(bind), TYPE));
         } else {
             List<Bind> list = gson.fromJson(oldValue, TYPE);
             list.add(bind);
@@ -273,17 +266,11 @@ public class BindsFragment extends Fragment {
         }, menuItem -> {
             final long pos = dataAdapter.getLongPressPos();
             if (pos > -1) {
-                Helper.displayAlert(getActivity(), R.string.bind_menu_delete, R.string.bind_delete_confirm, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        delete((int) pos);
-                        dataAdapter.remove((int) pos);
-                        dataAdapter.notifyDataSetChanged();
-                    }
-                }, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
+                Helper.displayAlert(getActivity(), R.string.bind_menu_delete, R.string.bind_delete_confirm, (dialog, which) -> {
+                    delete((int) pos);
+                    dataAdapter.remove((int) pos);
+                    dataAdapter.notifyDataSetChanged();
+                }, (dialog, which) -> {
                 });
 
             }

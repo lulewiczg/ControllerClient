@@ -145,12 +145,7 @@ public class LoginFragment extends Fragment {
         passwordInput.addTextChangedListener(new ValueChangeListener(Consts.PASSWORD, edit));
 
         Button button = view.findViewById(R.id.connect_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                click();
-            }
-        });
+        button.setOnClickListener(v -> click());
         return view;
     }
 
