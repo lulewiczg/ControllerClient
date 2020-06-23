@@ -46,6 +46,7 @@ public class Client implements Closeable {
     private ScheduledExecutorService pingExec;
     private long lastActionTime;
     private long ping;
+    private Activity activity;
 
     /**
      * Creates new client.
@@ -64,6 +65,15 @@ public class Client implements Closeable {
         }
         instance = new Client(address, port, timeout, serverTimeout, ping);
         return instance;
+    }
+
+    /**
+     * Reqisters main activity.
+     *
+     * @param activity activity
+     */
+    public static void registerActivity(Activity activity) {
+        instance.activity = activity;
     }
 
     /**
@@ -137,6 +147,7 @@ public class Client implements Closeable {
                     return (Response) in.readObject();
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
+                    Helper.close(Client.this);
                     return new Response(com.github.lulewiczg.controller.common.Status.NOT_OK, e);
                 } finally {
                     awaitingActions.decrementAndGet();
@@ -161,7 +172,6 @@ public class Client implements Closeable {
      *
      * @param action   action
      * @param activity activity
-     * @param activity
      */
     public void doActionFast(final Action action, final Activity activity) {
         if (record) {
@@ -223,13 +233,22 @@ public class Client implements Closeable {
             try {
                 out.writeObject(new PingAction());
                 out.flush();
+                Response r = (Response) in.readObject();
                 lastActionTime = System.currentTimeMillis();
-            } catch (IOException e) {
+                if (r.getStatus() != Status.OK) {
+                    onPingFailed();
+                }
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
+                onPingFailed();
             }
         }
     }
 
+    private void onPingFailed() {
+        Helper.close(this);
+        instance.doActionFast(new PingAction(), activity);
+    }
 
     public boolean isRecord() {
         return record;

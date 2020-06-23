@@ -3,8 +3,11 @@ package com.github.lulewiczg.controller.ui.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+
 import com.google.android.material.tabs.TabLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.WindowManager;
 
 import com.github.lulewiczg.controller.R;
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         client = Client.get();
+        Client.registerActivity(this);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
@@ -59,26 +63,17 @@ public class MainActivity extends AppCompatActivity {
             builder.setTitle(R.string.alert_exit_message);
             builder.setIcon(android.R.drawable.ic_dialog_alert);
             builder.setMessage(R.string.alert_exit_message);
-            builder.setNegativeButton(R.string.exit_disconnect, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    client.logout(MainActivity.this);
-                    Helper.close(client);
-                    MainActivity.super.onBackPressed();
-                }
+            builder.setNegativeButton(R.string.exit_disconnect, (dialog, which) -> {
+                client.logout(MainActivity.this);
+                Helper.close(client);
+                MainActivity.super.onBackPressed();
             });
-            builder.setNeutralButton(R.string.exit_shutdown, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    client.doAction(new ServerStopAction(), MainActivity.this);
-                    Helper.close(client);
-                    MainActivity.super.onBackPressed();
-                }
+            builder.setNeutralButton(R.string.exit_shutdown, (dialog, which) -> {
+                client.doAction(new ServerStopAction(), MainActivity.this);
+                Helper.close(client);
+                MainActivity.super.onBackPressed();
             });
-            builder.setPositiveButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
+            builder.setPositiveButton(R.string.cancel, (dialog, which) -> {
             });
             builder.create().show();
 
