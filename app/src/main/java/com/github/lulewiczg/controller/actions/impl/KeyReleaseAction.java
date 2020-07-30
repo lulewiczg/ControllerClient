@@ -11,11 +11,13 @@ public class KeyReleaseAction extends KeyAction {
 
     private static final long serialVersionUID = 1L;
 
-    public KeyReleaseAction(int key) {
-        super(key);
-    }
+    protected int key;
 
     public KeyReleaseAction() {
+    }
+
+    public KeyReleaseAction(int key) {
+        this.key = key;
     }
 
     @Override
