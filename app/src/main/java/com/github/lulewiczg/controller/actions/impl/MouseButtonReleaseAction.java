@@ -10,9 +10,10 @@ import com.github.lulewiczg.controller.actions.MouseButtonAction;
 public class MouseButtonReleaseAction extends MouseButtonAction {
 
     private static final long serialVersionUID = 1L;
+    protected int key;
 
     public MouseButtonReleaseAction(int key) {
-        super(key);
+        this.key = key;
     }
 
     public MouseButtonReleaseAction() {
