@@ -1,10 +1,11 @@
 package com.github.lulewiczg.controller.ui.component;
 
 import android.app.Activity;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.lulewiczg.controller.R;
 import com.github.lulewiczg.controller.actions.Action;
@@ -13,6 +14,7 @@ import com.github.lulewiczg.controller.common.ClientLimiter;
 import com.github.lulewiczg.controller.model.Bind;
 
 import java.util.List;
+import java.util.Optional;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -101,7 +103,7 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
 
     @Override
     public int getItemCount() {
-        return binds.size();
+        return Optional.ofNullable(binds).map(List::size).orElse(0);
     }
 
 }

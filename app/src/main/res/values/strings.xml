@@ -48,7 +48,13 @@
     <string name="bind.menu.edit">Edit</string>
     <string name="bind.menu.delete">Delete</string>
     <string name="bind.delete.confirm">Are you sure you want to delete this bind?</string>
-
+    <string name="bind.exec.duplicate">Bind already exists!</string>
+    <string name="bind.exec.export.error">Error during export process</string>
+    <string name="bind.exec.export.success">Export finished!</string>
+    <string name="bind.exec.import.error">Error during import process</string>
+    <string name="bind.exec.import.success">Import finished!</string>
+    <string name="bind.exec.import.confirm">Are you sure you want to import binds?</string>
+    <string name="bind.exec.import.not.found">Settings file not found!</string>
 
     <string name="bind.name">Enter bind name</string>
 
