@@ -13,9 +13,9 @@ public class ClientLimiter {
 
     private long prevTime = System.currentTimeMillis();
     private long time = System.currentTimeMillis();
-    private int interval;
-    private int maxQueue;
-    private boolean queueLimiter;
+    private final int interval;
+    private final int maxQueue;
+    private final boolean queueLimiter;
     private final int bindInterval;
 
     public ClientLimiter(Context context) {

@@ -1,7 +1,6 @@
 package com.github.lulewiczg.controller.client;
 
 import android.app.Activity;
-import android.os.AsyncTask;
 
 import com.github.lulewiczg.controller.actions.Action;
 import com.github.lulewiczg.controller.actions.impl.DisconnectAction;
@@ -18,15 +17,16 @@ import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import lombok.Getter;
 
 /**
  * Client to connect with server.
@@ -39,14 +39,15 @@ public class Client implements Closeable {
     private ObjectOutputStream out;
     private ObjectInputStream in;
     private static Client instance;
-    private ExecutorService exec;
-    private AtomicInteger awaitingActions;
+    private final AtomicInteger awaitingActions;
     private List<Action> recorded = new CopyOnWriteArrayList<>();
+    @Getter
     private boolean record;
     private ScheduledExecutorService pingExec;
     private long lastActionTime;
     private long ping;
     private Activity activity;
+    private Executor exec = Executors.newSingleThreadExecutor();
 
     /**
      * Creates new client.
@@ -136,34 +137,27 @@ public class Client implements Closeable {
         if (record) {
             recorded.add(action);
         }
-        AsyncTask<Action, Integer, Response> sendTask = new AsyncTask<Action, Integer, Response>() {
-            @Override
-            protected Response doInBackground(Action... params) {
+        Response response;
+        try {
+            response = CompletableFuture.supplyAsync(() -> {
                 try {
                     awaitingActions.incrementAndGet();
-                    out.writeObject(params[0]);
+                    out.writeObject(action);
                     out.flush();
                     lastActionTime = System.currentTimeMillis();
                     return (Response) in.readObject();
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                     Helper.close(Client.this);
-                    return new Response(com.github.lulewiczg.controller.common.Status.NOT_OK, e);
+                    return new Response(Status.NOT_OK, e);
                 } finally {
                     awaitingActions.decrementAndGet();
                 }
-            }
-
-        };
-        sendTask.execute(action);
-        Response response;
-        try {
-            response = sendTask.get(5, TimeUnit.SECONDS);
+            }, exec).get(5, TimeUnit.SECONDS);
         } catch (Exception e) {
             e.printStackTrace();
-            return new Response(Status.NOT_OK);
+            throw new RuntimeException(e);
         }
-        sendTask.cancel(true);
         return response;
     }
 
@@ -177,7 +171,7 @@ public class Client implements Closeable {
         if (record) {
             recorded.add(action);
         }
-        exec.submit(() -> {
+        exec.execute(() -> {
             try {
                 awaitingActions.incrementAndGet();
                 out.writeObject(action);
@@ -197,7 +191,6 @@ public class Client implements Closeable {
     @Override
     public void close() {
         if (exec != null) {
-            exec.shutdownNow();
             pingExec.shutdown();
         }
         Helper.close(in);
@@ -250,7 +243,4 @@ public class Client implements Closeable {
         instance.doActionFast(new PingAction(), activity);
     }
 
-    public boolean isRecord() {
-        return record;
-    }
 }

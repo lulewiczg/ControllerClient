@@ -54,10 +54,9 @@ public class BindsFragment extends Fragment {
     private FloatingActionButton saveButton;
 
     private RecyclerView listView;
-    private LinearLayoutManager layoutManger;
     private BindsDataAdapter dataAdapter;
 
-    private AtomicBoolean bindRunning = new AtomicBoolean(false);
+    private final AtomicBoolean bindRunning = new AtomicBoolean(false);
 
 
     /**
@@ -199,7 +198,7 @@ public class BindsFragment extends Fragment {
         listView = view.findViewById(R.id.bindsView);
         listView.setHasFixedSize(true);
 
-        layoutManger = new LinearLayoutManager(getContext());
+        LinearLayoutManager layoutManger = new LinearLayoutManager(getContext());
         listView.setLayoutManager(layoutManger);
         dataAdapter = new BindsDataAdapter(getBinds(), getActivity(), getMenuBuilder());
         listView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));

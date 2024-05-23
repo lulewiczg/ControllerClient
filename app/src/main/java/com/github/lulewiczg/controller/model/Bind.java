@@ -6,37 +6,23 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Model for bind.
  */
+@Getter
+@Setter
+@AllArgsConstructor
 public class Bind implements Serializable {
 
     private String name;
-    private List<Action> actions;
+    private final List<Action> actions;
 
     public Bind() {
         actions = new ArrayList<>();
-    }
-
-    public Bind(String name, List<Action> actions) {
-        this.name = name;
-        this.actions = actions;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Action> getActions() {
-        return actions;
-    }
-
-    public void setActions(List<Action> actions) {
-        this.actions = actions;
     }
 
     @Override

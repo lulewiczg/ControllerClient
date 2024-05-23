@@ -6,18 +6,16 @@ import android.view.View;
 
 import com.github.lulewiczg.controller.R;
 
+import lombok.AllArgsConstructor;
+
 /**
  * Menu builder for binds.
  */
+@AllArgsConstructor
 public class BindMenuBuilder implements View.OnCreateContextMenuListener {
 
-    private MenuItem.OnMenuItemClickListener editListener;
-    private MenuItem.OnMenuItemClickListener deleteListener;
-
-    public BindMenuBuilder(MenuItem.OnMenuItemClickListener editListener, MenuItem.OnMenuItemClickListener deleteListener) {
-        this.editListener = editListener;
-        this.deleteListener = deleteListener;
-    }
+    private final MenuItem.OnMenuItemClickListener editListener;
+    private final MenuItem.OnMenuItemClickListener deleteListener;
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {

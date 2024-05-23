@@ -63,13 +63,13 @@ public class LoginFragment extends Fragment {
         final Context context = getContext();
         final Intent intent = new Intent(context, MainActivity.class);
         final String address = addressInput.getText().toString();
-        if (address.equals("")) {
+        if (address.isEmpty()) {
             Toast.makeText(context, R.string.connect_address_empty, Toast.LENGTH_LONG).show();
             return;
         }
 
         String portStr = portInput.getText().toString();
-        if (portStr.equals("")) {
+        if (portStr.isEmpty()) {
             Toast.makeText(context, R.string.connect_port_empty, Toast.LENGTH_LONG).show();
             return;
         }

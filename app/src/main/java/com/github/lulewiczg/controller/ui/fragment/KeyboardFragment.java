@@ -1,10 +1,6 @@
 package com.github.lulewiczg.controller.ui.fragment;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -12,6 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.Fragment;
 
 import com.github.lulewiczg.controller.R;
 import com.github.lulewiczg.controller.actions.Action;
@@ -21,13 +21,16 @@ import com.github.lulewiczg.controller.client.Client;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import lombok.NonNull;
 
 /**
  * Fragment for keyboard control.
  */
 public class KeyboardFragment extends Fragment implements View.OnTouchListener {
 
-    private List<String> pressedKeys = new ArrayList<>(5);
+    private final List<String> pressedKeys = new ArrayList<>(5);
     private EditText label;
 
     @Override
@@ -86,7 +89,11 @@ public class KeyboardFragment extends Fragment implements View.OnTouchListener {
      * Updates label.
      */
     private void updateLabel() {
-        String txt = TextUtils.join(" + ", pressedKeys);
-        label.setText(txt.replace('\n', ' '));
+        if (pressedKeys.isEmpty()) {
+            Optional.ofNullable(getContext()).map(i -> i.getString(R.string.keyboard_pressed)).ifPresent(label::setText);
+        } else {
+            String txt = TextUtils.join(" + ", pressedKeys);
+            label.setText(txt.replace('\n', ' '));
+        }
     }
 }

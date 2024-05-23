@@ -13,9 +13,7 @@ public abstract class Action implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder str = new StringBuilder();
-        str.append("Action: ").append(this.getClass().getSimpleName());
-        return str.toString();
+        return "Action: " + this.getClass().getSimpleName();
     }
 
     public abstract String getDescription();

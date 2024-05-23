@@ -2,11 +2,14 @@ package com.github.lulewiczg.controller.common;
 
 import java.io.Serializable;
 
+import lombok.Getter;
+
+@Getter
 public class Response implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Status status;
+    private final Status status;
 
     private String exceptionStr;
 
@@ -19,14 +22,6 @@ public class Response implements Serializable {
         if (exception != null) {
             this.exceptionStr = exception.toString();
         }
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public String getExceptionStr() {
-        return exceptionStr;
     }
 
     @Override

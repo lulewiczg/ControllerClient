@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-    private List<Fragment> fragments = new ArrayList<>();
+    private final List<Fragment> fragments = new ArrayList<>();
 
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.action_mouse, R.string.action_keyboard, R.string.action_text, R.string.action_binds, R.string.action_settings};

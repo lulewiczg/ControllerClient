@@ -54,6 +54,7 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
         loadPreferences();
     }
 
+
     @Override
     public void onResume() {
         super.onResume();
@@ -143,7 +144,6 @@ public class MouseFragment extends ActionFragment implements View.OnTouchListene
     private void processTouchpad(MotionEvent event) {
         int index = event.getActionIndex();
         int pointerId = event.getPointerId(index);
-        vt.clear();
         vt.addMovement(event);
         vt.computeCurrentVelocity(speed);
         dx += vt.getXVelocity(pointerId);

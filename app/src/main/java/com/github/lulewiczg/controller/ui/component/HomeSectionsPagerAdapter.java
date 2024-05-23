@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class HomeSectionsPagerAdapter extends FragmentPagerAdapter {
 
-    private List<Fragment> fragments = new ArrayList<>();
+    private final List<Fragment> fragments = new ArrayList<>();
 
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.action_login, R.string.action_settings};

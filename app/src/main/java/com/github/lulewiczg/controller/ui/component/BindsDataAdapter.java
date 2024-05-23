@@ -14,22 +14,28 @@ import com.github.lulewiczg.controller.model.Bind;
 
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Data adapter for binds.
  */
+@Getter
 public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.BindHolder> {
     private final Activity activity;
     private final BindMenuBuilder menuBuilder;
-    private List<Bind> binds;
+    private final List<Bind> binds;
+    @Setter
     private ClientLimiter limiter;
+    @Setter
     private int longPressPos = -1;
 
     /**
      * View for bind.
      */
     public class BindHolder extends RecyclerView.ViewHolder {
-        private TextView bindName;
-        private TextView bindDetails;
+        private final TextView bindName;
+        private final TextView bindDetails;
 
         public BindHolder(ViewGroup v) {
             super(v);
@@ -83,8 +89,7 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
     public BindsDataAdapter.BindHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ViewGroup v = (ViewGroup) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.bind_layout, parent, false);
-        BindHolder holder = new BindHolder(v);
-        return holder;
+        return new BindHolder(v);
     }
 
     @Override
@@ -99,15 +104,4 @@ public class BindsDataAdapter extends RecyclerView.Adapter<BindsDataAdapter.Bind
         return binds.size();
     }
 
-    public int getLongPressPos() {
-        return longPressPos;
-    }
-
-    public void setLongPressPos(int longPressPos) {
-        this.longPressPos = longPressPos;
-    }
-
-    public void setLimiter(ClientLimiter limiter) {
-        this.limiter = limiter;
-    }
 }
