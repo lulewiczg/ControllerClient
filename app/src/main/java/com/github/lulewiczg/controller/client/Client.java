@@ -190,7 +190,7 @@ public class Client implements Closeable {
      */
     @Override
     public void close() {
-        if (exec != null) {
+        if (pingExec != null) {
             pingExec.shutdown();
         }
         Helper.close(in);
